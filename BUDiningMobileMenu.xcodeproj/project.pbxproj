@@ -19,8 +19,6 @@
 		DC0FD48B1909816400D409CC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0FD48A1909816400D409CC /* XCTest.framework */; };
 		DC0FD48C1909816400D409CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0FD46B1909816400D409CC /* Foundation.framework */; };
 		DC0FD48D1909816400D409CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0FD46F1909816400D409CC /* UIKit.framework */; };
-		DC0FD4951909816400D409CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC0FD4931909816400D409CC /* InfoPlist.strings */; };
-		DC0FD4971909816400D409CC /* BUDiningMobileMenuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0FD4961909816400D409CC /* BUDiningMobileMenuTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,9 +48,6 @@
 		DC0FD4831909816400D409CC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DC0FD4891909816400D409CC /* BUDiningMobileMenuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BUDiningMobileMenuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC0FD48A1909816400D409CC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		DC0FD4921909816400D409CC /* BUDiningMobileMenuTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BUDiningMobileMenuTests-Info.plist"; sourceTree = "<group>"; };
-		DC0FD4941909816400D409CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		DC0FD4961909816400D409CC /* BUDiningMobileMenuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUDiningMobileMenuTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +78,6 @@
 			isa = PBXGroup;
 			children = (
 				DC0FD4711909816400D409CC /* BUDiningMobileMenu */,
-				DC0FD4901909816400D409CC /* BUDiningMobileMenuTests */,
 				DC0FD46A1909816400D409CC /* Frameworks */,
 				DC0FD4691909816400D409CC /* Products */,
 			);
@@ -130,24 +124,6 @@
 				DC0FD4741909816400D409CC /* InfoPlist.strings */,
 				DC0FD4771909816400D409CC /* main.m */,
 				DC0FD4791909816400D409CC /* BUDiningMobileMenu-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		DC0FD4901909816400D409CC /* BUDiningMobileMenuTests */ = {
-			isa = PBXGroup;
-			children = (
-				DC0FD4961909816400D409CC /* BUDiningMobileMenuTests.m */,
-				DC0FD4911909816400D409CC /* Supporting Files */,
-			);
-			path = BUDiningMobileMenuTests;
-			sourceTree = "<group>";
-		};
-		DC0FD4911909816400D409CC /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				DC0FD4921909816400D409CC /* BUDiningMobileMenuTests-Info.plist */,
-				DC0FD4931909816400D409CC /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -238,7 +214,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC0FD4951909816400D409CC /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,7 +234,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC0FD4971909816400D409CC /* BUDiningMobileMenuTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,14 +262,6 @@
 				DC0FD47E1909816400D409CC /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		DC0FD4931909816400D409CC /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DC0FD4941909816400D409CC /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -456,6 +422,7 @@
 				DC0FD49C1909816400D409CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC0FD49D1909816400D409CC /* Build configuration list for PBXNativeTarget "BUDiningMobileMenuTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +431,7 @@
 				DC0FD49F1909816400D409CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
