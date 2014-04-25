@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC05AE5F190B2D13000F4778 /* z03sz-373x500.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DC05AE5C190B2D13000F4778 /* z03sz-373x500.jpg */; };
+		DC05AE60190B2D13000F4778 /* Warren_Towers-598x398.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DC05AE5D190B2D13000F4778 /* Warren_Towers-598x398.jpg */; };
+		DC05AE61190B2D13000F4778 /* westcampus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DC05AE5E190B2D13000F4778 /* westcampus.jpg */; };
 		DC0FD46C1909816400D409CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0FD46B1909816400D409CC /* Foundation.framework */; };
 		DC0FD46E1909816400D409CC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0FD46D1909816400D409CC /* CoreGraphics.framework */; };
 		DC0FD4701909816400D409CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0FD46F1909816400D409CC /* UIKit.framework */; };
@@ -32,6 +35,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC05AE5C190B2D13000F4778 /* z03sz-373x500.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "z03sz-373x500.jpg"; sourceTree = "<group>"; };
+		DC05AE5D190B2D13000F4778 /* Warren_Towers-598x398.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Warren_Towers-598x398.jpg"; sourceTree = "<group>"; };
+		DC05AE5E190B2D13000F4778 /* westcampus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = westcampus.jpg; sourceTree = "<group>"; };
 		DC0FD4681909816400D409CC /* BUDiningMobileMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BUDiningMobileMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC0FD46B1909816400D409CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DC0FD46D1909816400D409CC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -124,6 +130,9 @@
 				DC0FD4741909816400D409CC /* InfoPlist.strings */,
 				DC0FD4771909816400D409CC /* main.m */,
 				DC0FD4791909816400D409CC /* BUDiningMobileMenu-Prefix.pch */,
+				DC05AE5C190B2D13000F4778 /* z03sz-373x500.jpg */,
+				DC05AE5D190B2D13000F4778 /* Warren_Towers-598x398.jpg */,
+				DC05AE5E190B2D13000F4778 /* westcampus.jpg */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -205,7 +214,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC0FD4841909816400D409CC /* Images.xcassets in Resources */,
+				DC05AE61190B2D13000F4778 /* westcampus.jpg in Resources */,
+				DC05AE5F190B2D13000F4778 /* z03sz-373x500.jpg in Resources */,
 				DC0FD4761909816400D409CC /* InfoPlist.strings in Resources */,
+				DC05AE60190B2D13000F4778 /* Warren_Towers-598x398.jpg in Resources */,
 				DC0FD47F1909816400D409CC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
