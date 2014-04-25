@@ -1,10 +1,68 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5023" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="U6y-Rf-Y5C">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--View Controller - West-->
+        <scene sceneID="SRd-Cy-zfZ">
+            <objects>
+                <viewController id="EDe-7T-UTG" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JKt-r1-GwN"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xly-0d-wsf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ota-HJ-jgf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="West" id="NZM-YS-tA8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tt0-n8-VVK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="77" y="38"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="kAV-Km-X20">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="U6y-Rf-Y5C" sceneMemberID="viewController">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="ucS-ut-GlD">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="EDe-7T-UTG" kind="relationship" relationship="viewControllers" id="oIB-Sg-EFy"/>
+                        <segue destination="38X-mg-YDL" kind="relationship" relationship="viewControllers" id="NAG-n7-ASE"/>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="81H-yE-NC7"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KsD-Fn-IDZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-549" y="571"/>
+        </scene>
+        <!--View Controller - Warren-->
+        <scene sceneID="Gp2-zQ-LR5">
+            <objects>
+                <viewController id="38X-mg-YDL" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9KP-SB-q6b"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rdm-aI-ucb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kvZ-u7-r3n">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Warren" id="rPr-Pz-lxM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sVy-f6-Yim" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="77" y="717"/>
+        </scene>
+        <!--View Controller - Bay State-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
@@ -17,9 +75,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Bay State" id="rQs-Sw-oKi"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="67" y="1387"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
