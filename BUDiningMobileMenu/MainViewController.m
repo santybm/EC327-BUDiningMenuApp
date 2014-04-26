@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "itemNameCellTableViewCell.h"
+#import "NutritionViewController.h"
 #import "HallImageTableViewCell.h"
 
 @interface MainViewController ()

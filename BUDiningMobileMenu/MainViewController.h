@@ -29,6 +29,10 @@
     NSMutableString *ElementValue;
     BOOL errorParsing;
     NSData * xmlFile;
+    
+    
+   NSInteger foodIndex;
+    
     NSInteger currectSelection;
 
 }
