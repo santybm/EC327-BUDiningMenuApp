@@ -175,6 +175,9 @@
                                 <state key="selected">
                                     <attributedString key="attributedTitle"/>
                                 </state>
+                                <connections>
+                                    <action selector="backButton:" destination="38X-mg-YDL" eventType="touchUpInside" id="vtt-qN-MrJ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nutrition Information" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UND-24-bkd">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
