@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "itemNameCellTableViewCell.h"
 
 @interface MainViewController ()
 
@@ -146,6 +147,31 @@
     }
     
 }
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [names count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *simpleTableIdentifier = @"itemNameCell";
+    
+    itemNameCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
+    if (cell == nil) {
+        cell = [[itemNameCellTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    
+    ((itemNameCellTableViewCell *)cell).itemNameLabel.text = [names objectAtIndex:indexPath.row];
+    return cell;
+}
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+  //  return 68;
+//}
+
 
 
 /*

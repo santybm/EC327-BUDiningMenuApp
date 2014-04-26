@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "DetailViewController.h"
 
-@interface MainViewController : UIViewController <UITabBarDelegate>{
+@interface MainViewController : UIViewController <UITabBarDelegate, UITableViewDataSource, UITableViewDelegate>{
     
     DetailViewController *detailViewController;
     
@@ -24,6 +24,7 @@
     NSData * xmlFile;
 
 }
+
 @property (nonatomic, retain) IBOutlet DetailViewController *detailViewController;
 
 - (void)parseXMLFileAtURL:(NSString *)URL;
