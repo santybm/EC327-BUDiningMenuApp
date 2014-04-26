@@ -60,13 +60,47 @@
 
 #pragma mark- TabBar Delegate
 
+
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
     tabBar.selectedImageTintColor = [UIColor colorWithRed:204.0/255 green:0 blue:0 alpha:1];
+
+    
     NSInteger index = [tabBar.items indexOfObject:item];
     
+    
     currectSelection = index;
+    
+    //abcd
+    
     NSLog(@"%d", index);
+    
+    HallImageTableViewCell *cell0 = [self.mainTableView dequeueReusableCellWithIdentifier:@"TableDiningImage"];
+    if (index == 0)
+    {
+        ((HallImageTableViewCell *)cell0).DHallImage.image = [UIImage imageNamed:@"warren_inAction.jpg"];
+        ((HallImageTableViewCell *)cell0).diningHallName.text = @"Warren Towers Dining Hall";
+        [self.mainTableView reloadData];
+        return;
+    }
+    else if (index == 1)
+    {
+        ((HallImageTableViewCell *)cell0).DHallImage.image = [UIImage imageNamed:@"baystate_inAction.jpg"];
+        ((HallImageTableViewCell *)cell0).diningHallName.text = @"Marciano Commons";
+        [self.mainTableView reloadData];
+        return;
+    }
+    else
+    {
+        ((HallImageTableViewCell *)cell0).DHallImage.image = [UIImage imageNamed:@"west_inAction.jpg"];
+        ((HallImageTableViewCell *)cell0).diningHallName.text = @"West Campus Dining Hall";
+        [self.mainTableView reloadData];
+        return;
+    }
+
+    
+    
+    
 }
 
 
@@ -239,11 +273,20 @@
                 cell0 = [[HallImageTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:hallImageTableIdentifer];
             }
             if (currectSelection == 0)
+            {
                 ((HallImageTableViewCell *)cell0).DHallImage.image = [UIImage imageNamed:@"warren_inAction.jpg"];
+                ((HallImageTableViewCell *)cell0).diningHallName.text = @"Warren Towers Dining Hall";
+            }
             else if (currectSelection == 1)
-                ((HallImageTableViewCell *)cell0).DHallImage.image = [UIImage imageNamed:@"west_inAction.jpg"];
-            else if (currectSelection == 2)
+            {
                 ((HallImageTableViewCell *)cell0).DHallImage.image = [UIImage imageNamed:@"baystate_inAction.jpg"];
+                ((HallImageTableViewCell *)cell0).diningHallName.text = @"Marciano Commons";
+            }
+            else if (currectSelection == 2)
+            {
+                ((HallImageTableViewCell *)cell0).DHallImage.image = [UIImage imageNamed:@"west_inAction.jpg"];
+                ((HallImageTableViewCell *)cell0).diningHallName.text = @"West Campus Dining Hall";
+            }
             return cell0;
             break;
         }
