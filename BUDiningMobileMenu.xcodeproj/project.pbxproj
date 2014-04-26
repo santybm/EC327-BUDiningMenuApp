@@ -19,6 +19,7 @@
 		DC0FD48B1909816400D409CC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0FD48A1909816400D409CC /* XCTest.framework */; };
 		DC0FD48C1909816400D409CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0FD46B1909816400D409CC /* Foundation.framework */; };
 		DC0FD48D1909816400D409CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0FD46F1909816400D409CC /* UIKit.framework */; };
+		DC4A5CC6190B536B00244845 /* warren.png in Resources */ = {isa = PBXBuildFile; fileRef = DC4A5CC5190B536B00244845 /* warren.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		DC0FD4831909816400D409CC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DC0FD4891909816400D409CC /* BUDiningMobileMenuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BUDiningMobileMenuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC0FD48A1909816400D409CC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		DC4A5CC5190B536B00244845 /* warren.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warren.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				DC0FD4731909816400D409CC /* BUDiningMobileMenu-Info.plist */,
+				DC4A5CC5190B536B00244845 /* warren.png */,
 				DC0FD4741909816400D409CC /* InfoPlist.strings */,
 				DC0FD4771909816400D409CC /* main.m */,
 				DC0FD4791909816400D409CC /* BUDiningMobileMenu-Prefix.pch */,
@@ -204,6 +207,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC4A5CC6190B536B00244845 /* warren.png in Resources */,
 				DC0FD4841909816400D409CC /* Images.xcassets in Resources */,
 				DC0FD4761909816400D409CC /* InfoPlist.strings in Resources */,
 				DC0FD47F1909816400D409CC /* Main.storyboard in Resources */,
