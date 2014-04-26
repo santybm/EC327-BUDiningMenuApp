@@ -90,7 +90,6 @@
                                             <outlet property="image2" destination="N5S-ax-f5Y" id="rhF-82-aYb"/>
                                             <outlet property="image3" destination="N5S-ax-f5Y" id="6bQ-DY-WFv"/>
                                             <outlet property="itemNameLabel" destination="kFz-7y-Gxk" id="uoY-JH-Ygs"/>
-                                            <segue destination="38X-mg-YDL" kind="modal" id="74o-Xd-fEa"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -122,16 +121,17 @@
                         <outlet property="bayStateTab" destination="b6O-NS-5qQ" id="wwd-6o-sik"/>
                         <outlet property="locationTabBar" destination="81a-uw-TWh" id="oXV-b9-Wi9"/>
                         <outlet property="warrenTab" destination="FUH-6N-xrZ" id="jfG-j5-Q9g"/>
+                        <segue destination="38X-mg-YDL" kind="modal" identifier="MySegue" id="Io9-3K-VGg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u3O-tX-lrc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="185" y="712"/>
         </scene>
-        <!--View Controller - Nutrition-->
+        <!--Nutrition View Controller - Nutrition-->
         <scene sceneID="Gp2-zQ-LR5">
             <objects>
-                <viewController title="Nutrition" id="38X-mg-YDL" sceneMemberID="viewController">
+                <viewController title="Nutrition" id="38X-mg-YDL" customClass="NutritionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9KP-SB-q6b"/>
                         <viewControllerLayoutGuide type="bottom" id="Rdm-aI-ucb"/>
@@ -175,6 +175,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Warren" id="rPr-Pz-lxM"/>
+                    <connections>
+                        <outlet property="NutritionImage" destination="e91-x2-g1e" id="wc0-oc-nvR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sVy-f6-Yim" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

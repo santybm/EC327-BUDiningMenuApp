@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "itemNameCellTableViewCell.h"
+#import "NutritionViewController.h"
 
 @interface MainViewController ()
 
@@ -29,8 +30,14 @@
 {
     [super viewDidLoad];
 
+    meal = [[NSMutableArray alloc] init];
     names = [[NSMutableArray alloc] init];
+    category = [[NSMutableArray alloc] init];
+    sar = [[NSMutableArray alloc] init];
+    vegetar = [[NSMutableArray alloc] init];
     vegs = [[NSMutableArray alloc] init];
+    facts = [[NSMutableArray alloc] init];
+    
     [self parseXMLFileAtURL:@"http://sbeltran.com/diningXML.xml"];
 
     // Do any additional setup after loading the view.
@@ -105,6 +112,36 @@
         [vegs addObject: ElementValue];
         
     }
+    if ([elementName isEqualToString:@"meal"]) {
+        item = [[NSMutableDictionary alloc] init];
+        [meal addObject: ElementValue];
+        
+    }
+
+    if ([elementName isEqualToString:@"category"]) {
+        item = [[NSMutableDictionary alloc] init];
+        [category addObject: ElementValue];
+        
+    }
+
+    if ([elementName isEqualToString:@"isSargent"]) {
+        item = [[NSMutableDictionary alloc] init];
+        [sar addObject: ElementValue];
+        
+    }
+
+    if ([elementName isEqualToString:@"isVegetarian"]) {
+        item = [[NSMutableDictionary alloc] init];
+        [vegetar addObject: ElementValue];
+        
+    }
+
+    if ([elementName isEqualToString:@"factsURL"]) {
+        item = [[NSMutableDictionary alloc] init];
+        [facts addObject: ElementValue];
+        
+    }
+
     
 }
 
@@ -124,12 +161,16 @@
 }
 - (void)goThroughArray{
     //  NSLog(@"2");
-    for(int i=0; i<articles.count;i++)
+    for(int i=0; i<names.count;i++)
     {
-        
+        NSLog(@"%@", [meal objectAtIndex:i] );
         NSLog(@"%@", [names objectAtIndex:i] );
+        NSLog(@"%@", [category objectAtIndex:i] );
+        NSLog(@"%@", [sar objectAtIndex:i] );
+        NSLog(@"%@", [vegetar objectAtIndex:i] );
         NSLog(@"%@", [vegs objectAtIndex:i] );
-        
+        NSLog(@"%@", [facts objectAtIndex:i] );
+     
         
     }
 }
@@ -165,7 +206,22 @@
     }
     
     ((itemNameCellTableViewCell *)cell).itemNameLabel.text = [names objectAtIndex:indexPath.row];
+   
     return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    foodIndex=indexPath.row;
+    [self performSegueWithIdentifier:@"MySegue" sender:self];
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"MySegue"])
+    {
+        NutritionViewController *c = [segue destinationViewController];
+        c.num=(int)foodIndex;
+        
+    }
 }
 
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
