@@ -21,7 +21,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableDiningImage" rowHeight="86" id="PNa-Ys-cXU" customClass="HallImageTableViewCell">
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableDiningImage" rowHeight="86" id="PNa-Ys-cXU" customClass="HallImageTableViewCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="PNa-Ys-cXU" id="Lgp-Hj-kVF">
@@ -90,7 +90,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="image1" destination="QH7-th-boJ" id="tmw-T9-ggH"/>
-                                            <outlet property="image2" destination="N5S-ax-f5Y" id="rhF-82-aYb"/>
+                                            <outlet property="image2" destination="ob5-cb-sE3" id="x0v-Aw-sKG"/>
                                             <outlet property="image3" destination="N5S-ax-f5Y" id="6bQ-DY-WFv"/>
                                             <outlet property="itemNameLabel" destination="kFz-7y-Gxk" id="uoY-JH-Ygs"/>
                                         </connections>

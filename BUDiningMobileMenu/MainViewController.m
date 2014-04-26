@@ -39,6 +39,8 @@
     vegs = [[NSMutableArray alloc] init];
     facts = [[NSMutableArray alloc] init];
     
+    [self setupArrays];
+    
     [self parseXMLFileAtURL:@"http://sbeltran.com/diningXML.xml"];
 
     // Do any additional setup after loading the view.
@@ -204,7 +206,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [names count];
+    return names.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -265,13 +267,40 @@
         cell = [[itemNameCellTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
-    ((itemNameCellTableViewCell *)cell).itemNameLabel.text = [names objectAtIndex:indexPath.row];
+    ((itemNameCellTableViewCell *)cell).itemNameLabel.text = [names objectAtIndex:(indexPath.row)];
+    
+  //  NSLog(@"%@", vegetar[indexPath.row]);
+    
+    //Vegitarian
+    NSString *vt = vegetar[indexPath.row] ;
+   // NSLog(@"%lu",(unsigned long)vt.length );
+    vt = [vt stringByReplacingOccurrencesOfString:@" " withString:@""];
+  //  NSLog(@"%@", vt);
+    if(vt.length==7)
+        ((itemNameCellTableViewCell *)cell).image1.image = [UIImage imageNamed:@"vegitarian.png"];
+    
+    //Vegan
+    NSString *vegan = vegs[indexPath.row] ;
+    NSLog(@"%@",names[indexPath.row ]);
+    NSLog(@"%lu",(unsigned long)vegan.length );
+    vegan = [vegan stringByReplacingOccurrencesOfString:@" " withString:@""];
+    //  NSLog(@"%@", vegan);
+    if(vegan.length==7)
+        ((itemNameCellTableViewCell *)cell).image3.image = [UIImage imageNamed:@"vegan.png"];
+    
+    //Sargent
+    NSString *sargent = sar[indexPath.row] ;
+   // NSLog(@"%lu",(unsigned long)sargent.length );
+    sargent = [sargent stringByReplacingOccurrencesOfString:@" " withString:@""];
+    //NSLog(@"%@", sargent);
+    if(sargent.length==7)
+        ((itemNameCellTableViewCell *)cell).image2.image = [UIImage imageNamed:@"sargent.png"];
    
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    foodIndex=indexPath.row;
+    foodIndex=(indexPath.row);
     [self performSegueWithIdentifier:@"MySegue" sender:self];
 }
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -282,6 +311,18 @@
         c.num=(int)foodIndex;
         c.nutritionImg=facts;
     }
+}
+
+- (void) setupArrays
+{
+    meal[0] = @"error";
+    names[0] =@"error";;
+    category[0] =@"error";
+    sar [0] = @"error";;
+    vegetar [0] = @"error";
+    vegs [0] = @"error";
+    facts [0] = @"error";
+    
 }
 
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
