@@ -237,11 +237,20 @@
                 cell0 = [[HallImageTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:hallImageTableIdentifer];
             }
             if (currectSelection == 0)
+            {
                 ((HallImageTableViewCell *)cell0).DHallImage.image = [UIImage imageNamed:@"warren_inAction.jpg"];
+                ((HallImageTableViewCell *)cell0).diningHallName.text = @"Warren Towers Dining Hall";
+            }
             else if (currectSelection == 1)
+            {
                 ((HallImageTableViewCell *)cell0).DHallImage.image = [UIImage imageNamed:@"west_inAction.jpg"];
+                ((HallImageTableViewCell *)cell0).diningHallName.text = @"West Campus Dining Hall";
+            }
             else if (currectSelection == 2)
+            {
                 ((HallImageTableViewCell *)cell0).DHallImage.image = [UIImage imageNamed:@"baystate_inAction.jpg"];
+                ((HallImageTableViewCell *)cell0).diningHallName.text = @"Marciano Commons";
+            }
             return cell0;
             break;
         }

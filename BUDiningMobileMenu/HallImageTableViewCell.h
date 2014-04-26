@@ -10,5 +10,6 @@
 
 @interface HallImageTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *DHallImage;
+@property (weak, nonatomic) IBOutlet UILabel *diningHallName;
 
 @end
