@@ -16,8 +16,15 @@
     NSXMLParser *rssParser;
     NSMutableArray *articles;
     NSMutableDictionary *item;
+    
+    NSMutableArray *meal;
     NSMutableArray *names;
+    NSMutableArray *category;
+    NSMutableArray *sar;
+    NSMutableArray *vegetar;
     NSMutableArray *vegs;
+    NSMutableArray *facts;
+    
     NSString *currentElement;
     NSMutableString *ElementValue;
     BOOL errorParsing;

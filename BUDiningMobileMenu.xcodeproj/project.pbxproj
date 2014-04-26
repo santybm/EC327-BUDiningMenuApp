@@ -25,6 +25,7 @@
 		DC1D7134190B6E3E00045E66 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1D7131190B6E3E00045E66 /* DetailViewController.m */; };
 		DC1D7138190B773000045E66 /* itemNameCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1D7137190B773000045E66 /* itemNameCellTableViewCell.m */; };
 		DC1D713B190B7B0E00045E66 /* categoryTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1D713A190B7B0E00045E66 /* categoryTitleTableViewCell.m */; };
+		DC1D713E190B88E700045E66 /* NutritionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1D713D190B88E700045E66 /* NutritionViewController.m */; };
 		DC4A5CC6190B536B00244845 /* warren.png in Resources */ = {isa = PBXBuildFile; fileRef = DC4A5CC5190B536B00244845 /* warren.png */; };
 		DC4A5CC8190B55CD00244845 /* bayState.png in Resources */ = {isa = PBXBuildFile; fileRef = DC4A5CC7190B55CD00244845 /* bayState.png */; };
 		DC4A5CCC190B5AE800244845 /* west.png in Resources */ = {isa = PBXBuildFile; fileRef = DC4A5CCB190B5AE800244845 /* west.png */; };
@@ -74,6 +75,8 @@
 		DC1D7137190B773000045E66 /* itemNameCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = itemNameCellTableViewCell.m; sourceTree = "<group>"; };
 		DC1D7139190B7B0E00045E66 /* categoryTitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = categoryTitleTableViewCell.h; sourceTree = "<group>"; };
 		DC1D713A190B7B0E00045E66 /* categoryTitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = categoryTitleTableViewCell.m; sourceTree = "<group>"; };
+		DC1D713C190B88E700045E66 /* NutritionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NutritionViewController.h; sourceTree = "<group>"; };
+		DC1D713D190B88E700045E66 /* NutritionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NutritionViewController.m; sourceTree = "<group>"; };
 		DC4A5CC5190B536B00244845 /* warren.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warren.png; sourceTree = "<group>"; };
 		DC4A5CC7190B55CD00244845 /* bayState.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bayState.png; sourceTree = "<group>"; };
 		DC4A5CCB190B5AE800244845 /* west.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = west.png; sourceTree = "<group>"; };
@@ -148,6 +151,8 @@
 				DC0FD47A1909816400D409CC /* AppDelegate.h */,
 				DC0FD47B1909816400D409CC /* AppDelegate.m */,
 				DC0FD47D1909816400D409CC /* Main.storyboard */,
+				DC1D713C190B88E700045E66 /* NutritionViewController.h */,
+				DC1D713D190B88E700045E66 /* NutritionViewController.m */,
 				DC0FD4801909816400D409CC /* ViewController.h */,
 				DC0FD4811909816400D409CC /* ViewController.m */,
 				DC4A5CDC190B92D900244845 /* HallImageTableViewCell.h */,
@@ -305,6 +310,7 @@
 				DC1D7138190B773000045E66 /* itemNameCellTableViewCell.m in Sources */,
 				DC0FD4781909816400D409CC /* main.m in Sources */,
 				DC4A5CDB190B647200244845 /* MainViewController.m in Sources */,
+				DC1D713E190B88E700045E66 /* NutritionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
