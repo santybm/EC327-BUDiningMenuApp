@@ -280,7 +280,7 @@
     {
         NutritionViewController *c = [segue destinationViewController];
         c.num=(int)foodIndex;
-        
+        c.nutritionImg=facts;
     }
 }
 

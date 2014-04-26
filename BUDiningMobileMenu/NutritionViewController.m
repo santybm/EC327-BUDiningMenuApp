@@ -16,6 +16,7 @@
 @implementation NutritionViewController
 
 @synthesize num;
+@synthesize nutritionImg;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,8 +29,8 @@
 
 - (void)viewDidLoad
 {
-    NSLog(@"%d",num);
-    NutritionImage.image=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://www.wallpaperfunda.com/wp-content/uploads/2014/03/images-2-660x330.jpg"]]];
+    NSString *urlString = [NSString stringWithString:nutritionImg[num]];
+    NutritionImage.image=[UIImage imageWithData:[NSData dataWithContentsOfURL: [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]]]];
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
