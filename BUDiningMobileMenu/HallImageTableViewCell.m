@@ -1,21 +1,21 @@
 //
-//  categoryTitleTableViewCell.m
+//  HallImageTableViewCell.m
 //  BUDiningMobileMenu
 //
-//  Created by Ben Cootner on 4/26/14.
+//  Created by Santiago Beltran on 4/26/14.
 //  Copyright (c) 2014 DevXApp. All rights reserved.
 //
 
-#import "categoryTitleTableViewCell.h"
+#import "HallImageTableViewCell.h"
 #import "MainViewController.h"
 
-@implementation categoryTitleTableViewCell
+@implementation HallImageTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
+        
     }
     return self;
 }

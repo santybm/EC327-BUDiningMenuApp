@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="GJp-MH-zKm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="sJb-ln-V47">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -17,12 +17,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Gq9-Xy-97E">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <rect key="frame" x="0.0" y="51" width="320" height="468"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableDiningImage" rowHeight="86" id="PNa-Ys-cXU">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="86"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableDiningImage" rowHeight="86" id="PNa-Ys-cXU" customClass="HallImageTableViewCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="PNa-Ys-cXU" id="Lgp-Hj-kVF">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
@@ -34,9 +34,12 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="DHallImage" destination="qVB-hZ-yIT" id="8Bt-oX-m03"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="categoryMenu" textLabel="deq-A6-DJf" rowHeight="46" style="IBUITableViewCellStyleDefault" id="1Ca-vU-gYe" customClass="categoryTitleTableViewCell">
-                                        <rect key="frame" x="0.0" y="172" width="320" height="46"/>
+                                        <rect key="frame" x="0.0" y="108" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Ca-vU-gYe" id="2NI-lb-qEY">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
@@ -57,7 +60,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="itemNameCell" rowHeight="68" id="fHk-fc-MdC" customClass="itemNameCellTableViewCell">
-                                        <rect key="frame" x="0.0" y="218" width="320" height="68"/>
+                                        <rect key="frame" x="0.0" y="154" width="320" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fHk-fc-MdC" id="wIT-GG-suF">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="67"/>
@@ -109,14 +112,25 @@
                                     <tabBarItem title="Bay State" image="bayState.png" id="b6O-NS-5qQ"/>
                                     <tabBarItem title="West" image="west.png" id="Pcy-Cf-ssL"/>
                                 </items>
+                                <color key="tintColor" red="0.80000000000000004" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="sJb-ln-V47" id="qgj-Bw-4kN"/>
                                 </connections>
                             </tabBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hzD-Oi-W0c">
+                                <rect key="frame" x="-7" y="20" width="334" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Breakfast"/>
+                                    <segment title="Lunch"/>
+                                    <segment title="Dinner"/>
+                                </segments>
+                                <color key="tintColor" red="0.80000000000000004" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="[Hall Name]" id="e5b-Yh-WhJ"/>
+                    <navigationItem key="navigationItem" id="e5b-Yh-WhJ"/>
                     <connections>
                         <outlet property="WestTab" destination="Pcy-Cf-ssL" id="dqK-ts-b4a"/>
                         <outlet property="bayStateTab" destination="b6O-NS-5qQ" id="wwd-6o-sik"/>
@@ -179,24 +193,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sVy-f6-Yim" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="628" y="711"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="YhL-eR-JrG">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GJp-MH-zKm" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QW6-0t-xTg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="sJb-ln-V47" kind="relationship" relationship="rootViewController" id="hxh-3C-CKH"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qMY-Zo-w6q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-341" y="712"/>
         </scene>
     </scenes>
     <resources>

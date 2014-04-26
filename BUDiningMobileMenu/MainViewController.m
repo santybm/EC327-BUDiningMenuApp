@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "itemNameCellTableViewCell.h"
+#import "HallImageTableViewCell.h"
 
 @interface MainViewController ()
 
@@ -35,6 +36,11 @@
 
     // Do any additional setup after loading the view.
     NSLog(@"%@", locationTabBar);
+    
+    
+    //Set the default TabBar item
+    [self.locationTabBar setSelectedItem:self.warrenTab];
+    [self.locationTabBar setSelectedImageTintColor:[UIColor colorWithRed:204.0/255 green:0 blue:0 alpha:1]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,11 +50,17 @@
 }
 
 #pragma mark- TabBar Delegate
+
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
+    tabBar.selectedImageTintColor = [UIColor colorWithRed:204.0/255 green:0 blue:0 alpha:1];
     NSInteger index = [tabBar.items indexOfObject:item];
+    
+    currectSelection = index;
     NSLog(@"%d", index);
 }
+
+
 
 //start parsing
 - (void) parserDidStartDocument:(NSXMLParser *)parser{
@@ -154,9 +166,57 @@
     return [names count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.item) {
+        case 0:
+            return 85;
+        case 1:
+            return 46;
+            break;
+        default:
+            break;
+    }
+    return 67;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    static NSString *hallImageTableIdentifer = @"TableDiningImage";
     static NSString *simpleTableIdentifier = @"itemNameCell";
+    static NSString *categoryTableIdentifer = @"categoryMenu";
+    
+    NSString *identityString = @"";
+    
+    switch (indexPath.item) {
+        case 0: {
+            identityString = hallImageTableIdentifer;
+            HallImageTableViewCell *cell0 = [tableView dequeueReusableCellWithIdentifier:hallImageTableIdentifer];
+            if (cell0 == nil) {
+                cell0 = [[HallImageTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:hallImageTableIdentifer];
+            }
+            if (currectSelection == 0)
+                ((HallImageTableViewCell *)cell0).DHallImage.image = [UIImage imageNamed:@"warren_inAction.jpg"];
+            else if (currectSelection == 1)
+                ((HallImageTableViewCell *)cell0).DHallImage.image = [UIImage imageNamed:@"west_inAction.jpg"];
+            else if (currectSelection == 2)
+                ((HallImageTableViewCell *)cell0).DHallImage.image = [UIImage imageNamed:@"baystate_inAction.jpg"];
+            return cell0;
+            break;
+        }
+        case 1: {
+            identityString = categoryTableIdentifer;
+            //break;
+        }
+        case 2: {
+            identityString = simpleTableIdentifier;
+            //break;
+        }
+            
+        default:
+            break;
+    }
+    //adsfdsfas
     
     itemNameCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
@@ -184,5 +244,8 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+
 
 @end

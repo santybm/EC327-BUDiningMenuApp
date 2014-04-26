@@ -35,6 +35,7 @@
 		DC4A5CD6190B606500244845 /* sargent.png in Resources */ = {isa = PBXBuildFile; fileRef = DC4A5CD5190B606500244845 /* sargent.png */; };
 		DC4A5CD8190B60DC00244845 /* vegitarian.png in Resources */ = {isa = PBXBuildFile; fileRef = DC4A5CD7190B60DC00244845 /* vegitarian.png */; };
 		DC4A5CDB190B647200244845 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4A5CDA190B647200244845 /* MainViewController.m */; };
+		DC4A5CDE190B92D900244845 /* HallImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4A5CDD190B92D900244845 /* HallImageTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,8 @@
 		DC4A5CD7190B60DC00244845 /* vegitarian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vegitarian.png; sourceTree = "<group>"; };
 		DC4A5CD9190B647200244845 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		DC4A5CDA190B647200244845 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		DC4A5CDC190B92D900244845 /* HallImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HallImageTableViewCell.h; sourceTree = "<group>"; };
+		DC4A5CDD190B92D900244845 /* HallImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HallImageTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +150,8 @@
 				DC0FD47D1909816400D409CC /* Main.storyboard */,
 				DC0FD4801909816400D409CC /* ViewController.h */,
 				DC0FD4811909816400D409CC /* ViewController.m */,
+				DC4A5CDC190B92D900244845 /* HallImageTableViewCell.h */,
+				DC4A5CDD190B92D900244845 /* HallImageTableViewCell.m */,
 				DC1D7139190B7B0E00045E66 /* categoryTitleTableViewCell.h */,
 				DC1D713A190B7B0E00045E66 /* categoryTitleTableViewCell.m */,
 				DC1D7136190B773000045E66 /* itemNameCellTableViewCell.h */,
@@ -294,6 +299,7 @@
 			files = (
 				DC1D7134190B6E3E00045E66 /* DetailViewController.m in Sources */,
 				DC1D713B190B7B0E00045E66 /* categoryTitleTableViewCell.m in Sources */,
+				DC4A5CDE190B92D900244845 /* HallImageTableViewCell.m in Sources */,
 				DC0FD4821909816400D409CC /* ViewController.m in Sources */,
 				DC0FD47C1909816400D409CC /* AppDelegate.m in Sources */,
 				DC1D7138190B773000045E66 /* itemNameCellTableViewCell.m in Sources */,

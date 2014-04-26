@@ -22,6 +22,7 @@
     NSMutableString *ElementValue;
     BOOL errorParsing;
     NSData * xmlFile;
+    NSInteger currectSelection;
 
 }
 
