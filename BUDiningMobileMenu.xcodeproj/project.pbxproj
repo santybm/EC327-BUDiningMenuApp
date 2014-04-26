@@ -23,6 +23,14 @@
 		DC0FD48C1909816400D409CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0FD46B1909816400D409CC /* Foundation.framework */; };
 		DC0FD48D1909816400D409CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0FD46F1909816400D409CC /* UIKit.framework */; };
 		DC4A5CC6190B536B00244845 /* warren.png in Resources */ = {isa = PBXBuildFile; fileRef = DC4A5CC5190B536B00244845 /* warren.png */; };
+		DC4A5CC8190B55CD00244845 /* bayState.png in Resources */ = {isa = PBXBuildFile; fileRef = DC4A5CC7190B55CD00244845 /* bayState.png */; };
+		DC4A5CCC190B5AE800244845 /* west.png in Resources */ = {isa = PBXBuildFile; fileRef = DC4A5CCB190B5AE800244845 /* west.png */; };
+		DC4A5CCE190B5B8B00244845 /* west_inAction.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DC4A5CCD190B5B8B00244845 /* west_inAction.jpg */; };
+		DC4A5CD0190B5C2E00244845 /* warren_inAction.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DC4A5CCF190B5C2E00244845 /* warren_inAction.jpg */; };
+		DC4A5CD2190B5D0100244845 /* baystate_inAction.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DC4A5CD1190B5D0100244845 /* baystate_inAction.jpg */; };
+		DC4A5CD4190B601F00244845 /* vegan.png in Resources */ = {isa = PBXBuildFile; fileRef = DC4A5CD3190B601F00244845 /* vegan.png */; };
+		DC4A5CD6190B606500244845 /* sargent.png in Resources */ = {isa = PBXBuildFile; fileRef = DC4A5CD5190B606500244845 /* sargent.png */; };
+		DC4A5CD8190B60DC00244845 /* vegitarian.png in Resources */ = {isa = PBXBuildFile; fileRef = DC4A5CD7190B60DC00244845 /* vegitarian.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +64,14 @@
 		DC0FD4891909816400D409CC /* BUDiningMobileMenuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BUDiningMobileMenuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC0FD48A1909816400D409CC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		DC4A5CC5190B536B00244845 /* warren.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warren.png; sourceTree = "<group>"; };
+		DC4A5CC7190B55CD00244845 /* bayState.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bayState.png; sourceTree = "<group>"; };
+		DC4A5CCB190B5AE800244845 /* west.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = west.png; sourceTree = "<group>"; };
+		DC4A5CCD190B5B8B00244845 /* west_inAction.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = west_inAction.jpg; sourceTree = "<group>"; };
+		DC4A5CCF190B5C2E00244845 /* warren_inAction.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = warren_inAction.jpg; sourceTree = "<group>"; };
+		DC4A5CD1190B5D0100244845 /* baystate_inAction.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = baystate_inAction.jpg; sourceTree = "<group>"; };
+		DC4A5CD3190B601F00244845 /* vegan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vegan.png; sourceTree = "<group>"; };
+		DC4A5CD5190B606500244845 /* sargent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sargent.png; sourceTree = "<group>"; };
+		DC4A5CD7190B60DC00244845 /* vegitarian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vegitarian.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,8 +144,16 @@
 		DC0FD4721909816400D409CC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DC4A5CD3190B601F00244845 /* vegan.png */,
+				DC4A5CD5190B606500244845 /* sargent.png */,
+				DC4A5CD7190B60DC00244845 /* vegitarian.png */,
+				DC4A5CCB190B5AE800244845 /* west.png */,
 				DC0FD4731909816400D409CC /* BUDiningMobileMenu-Info.plist */,
+				DC4A5CCD190B5B8B00244845 /* west_inAction.jpg */,
+				DC4A5CD1190B5D0100244845 /* baystate_inAction.jpg */,
+				DC4A5CCF190B5C2E00244845 /* warren_inAction.jpg */,
 				DC4A5CC5190B536B00244845 /* warren.png */,
+				DC4A5CC7190B55CD00244845 /* bayState.png */,
 				DC0FD4741909816400D409CC /* InfoPlist.strings */,
 				DC0FD4771909816400D409CC /* main.m */,
 				DC0FD4791909816400D409CC /* BUDiningMobileMenu-Prefix.pch */,
@@ -216,13 +240,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC4A5CD6190B606500244845 /* sargent.png in Resources */,
 				DC4A5CC6190B536B00244845 /* warren.png in Resources */,
+				DC4A5CD2190B5D0100244845 /* baystate_inAction.jpg in Resources */,
 				DC0FD4841909816400D409CC /* Images.xcassets in Resources */,
+				DC4A5CCC190B5AE800244845 /* west.png in Resources */,
 				DC05AE61190B2D13000F4778 /* westcampus.jpg in Resources */,
 				DC05AE5F190B2D13000F4778 /* z03sz-373x500.jpg in Resources */,
+				DC4A5CC8190B55CD00244845 /* bayState.png in Resources */,
 				DC0FD4761909816400D409CC /* InfoPlist.strings in Resources */,
 				DC05AE60190B2D13000F4778 /* Warren_Towers-598x398.jpg in Resources */,
+				DC4A5CD0190B5C2E00244845 /* warren_inAction.jpg in Resources */,
 				DC0FD47F1909816400D409CC /* Main.storyboard in Resources */,
+				DC4A5CD8190B60DC00244845 /* vegitarian.png in Resources */,
+				DC4A5CD4190B601F00244845 /* vegan.png in Resources */,
+				DC4A5CCE190B5B8B00244845 /* west_inAction.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
