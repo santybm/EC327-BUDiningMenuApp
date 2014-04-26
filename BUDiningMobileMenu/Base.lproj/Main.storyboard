@@ -142,6 +142,7 @@
                         <outlet property="WestTab" destination="Pcy-Cf-ssL" id="dqK-ts-b4a"/>
                         <outlet property="bayStateTab" destination="b6O-NS-5qQ" id="wwd-6o-sik"/>
                         <outlet property="locationTabBar" destination="81a-uw-TWh" id="oXV-b9-Wi9"/>
+                        <outlet property="mainTableView" destination="Gq9-Xy-97E" id="jms-fz-2to"/>
                         <outlet property="warrenTab" destination="FUH-6N-xrZ" id="jfG-j5-Q9g"/>
                         <segue destination="38X-mg-YDL" kind="modal" identifier="MySegue" id="Io9-3K-VGg"/>
                     </connections>

@@ -36,6 +36,7 @@
     NSInteger currectSelection;
 
 }
+@property (weak, nonatomic) IBOutlet UITableView *mainTableView;
 
 @property (nonatomic, retain) IBOutlet DetailViewController *detailViewController;
 
