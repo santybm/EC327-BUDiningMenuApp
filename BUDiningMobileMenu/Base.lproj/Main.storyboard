@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--View Controller - Menu-->
+        <!--Main View Controller - Menu-->
         <scene sceneID="VtP-Rm-UTB">
             <objects>
-                <viewController title="Menu" id="sJb-ln-V47" sceneMemberID="viewController">
+                <viewController title="Menu" id="sJb-ln-V47" customClass="MainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YNU-BM-25S"/>
                         <viewControllerLayoutGuide type="bottom" id="U93-1h-3Rr"/>
@@ -98,11 +98,20 @@
                                     <tabBarItem title="Bay State" image="bayState.png" id="b6O-NS-5qQ"/>
                                     <tabBarItem title="West" image="west.png" id="Pcy-Cf-ssL"/>
                                 </items>
+                                <connections>
+                                    <outlet property="delegate" destination="sJb-ln-V47" id="qgj-Bw-4kN"/>
+                                </connections>
                             </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="[Hall Name]" id="e5b-Yh-WhJ"/>
+                    <connections>
+                        <outlet property="WestTab" destination="Pcy-Cf-ssL" id="dqK-ts-b4a"/>
+                        <outlet property="bayStateTab" destination="b6O-NS-5qQ" id="wwd-6o-sik"/>
+                        <outlet property="locationTabBar" destination="81a-uw-TWh" id="oXV-b9-Wi9"/>
+                        <outlet property="warrenTab" destination="FUH-6N-xrZ" id="jfG-j5-Q9g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u3O-tX-lrc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
