@@ -155,7 +155,7 @@
         [names addObject: ElementValue];
         
     }
-    if ([elementName isEqualToString:@"isVegetarian"]) {
+    if ([elementName isEqualToString:@"isVegan"]) {
         item = [[NSMutableDictionary alloc] init];
         [vegs addObject: ElementValue];
         
@@ -312,33 +312,23 @@
     
     ((itemNameCellTableViewCell *)cell).itemNameLabel.text = [names objectAtIndex:(indexPath.row)];
     
-  //  NSLog(@"%@", vegetar[indexPath.row]);
     
-    //Vegitarian
-    NSString *vt = vegetar[indexPath.row] ;
-   // NSLog(@"%lu",(unsigned long)vt.length );
-    vt = [vt stringByReplacingOccurrencesOfString:@" " withString:@""];
-  //  NSLog(@"%@", vt);
-    if(vt.length==7)
+    
+   //Vegitarian
+    NSString *vt = vegetar[indexPath.row];
+    if ([vt rangeOfString:@"FALSE"].location == NSNotFound) {
         ((itemNameCellTableViewCell *)cell).image1.image = [UIImage imageNamed:@"vegitarian.png"];
-    
+    }
     //Vegan
-    NSString *vegan = vegs[indexPath.row] ;
-    NSLog(@"%@",names[indexPath.row ]);
-    NSLog(@"%lu",(unsigned long)vegan.length );
-    vegan = [vegan stringByReplacingOccurrencesOfString:@" " withString:@""];
-    //  NSLog(@"%@", vegan);
-    if(vegan.length==7)
+    NSString *veg = vegs[indexPath.row];
+    if ([veg rangeOfString:@"FALSE"].location == NSNotFound) {
         ((itemNameCellTableViewCell *)cell).image3.image = [UIImage imageNamed:@"vegan.png"];
-    
+    }
     //Sargent
-    NSString *sargent = sar[indexPath.row] ;
-   // NSLog(@"%lu",(unsigned long)sargent.length );
-    sargent = [sargent stringByReplacingOccurrencesOfString:@" " withString:@""];
-    //NSLog(@"%@", sargent);
-    if(sargent.length==7)
+    NSString *sargent = sar[indexPath.row];
+    if ([sargent rangeOfString:@"FALSE"].location == NSNotFound) {
         ((itemNameCellTableViewCell *)cell).image2.image = [UIImage imageNamed:@"sargent.png"];
-   
+    }
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
