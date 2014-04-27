@@ -43,7 +43,7 @@
     
     [self parseXMLFileAtURL:@"http://sbeltran.com/diningXML.xml"];
     
-     [self Time];
+    [self Time];
 
     // Do any additional setup after loading the view.
     NSLog(@"%@", locationTabBar);
@@ -213,13 +213,13 @@
     //  NSLog(@"2");
     for(int i=0; i<names.count;i++)
     {
-        NSLog(@"%@", [meal objectAtIndex:i] );
-        NSLog(@"%@", [names objectAtIndex:i] );
-        NSLog(@"%@", [category objectAtIndex:i] );
-        NSLog(@"%@", [sar objectAtIndex:i] );
-        NSLog(@"%@", [vegetar objectAtIndex:i] );
-        NSLog(@"%@", [vegs objectAtIndex:i] );
-        NSLog(@"%@", [facts objectAtIndex:i] );
+          NSLog(@"%@", [meal objectAtIndex:i] );
+          NSLog(@"%@", [names objectAtIndex:i] );
+          NSLog(@"%@", [category objectAtIndex:i] );
+          NSLog(@"%@", [sar objectAtIndex:i] );
+          NSLog(@"%@", [vegetar objectAtIndex:i] );
+          NSLog(@"%@", [vegs objectAtIndex:i] );
+          NSLog(@"%@", [facts objectAtIndex:i] );
      
         
     }
@@ -366,8 +366,11 @@
     NSInteger currentHour = [components hour];
   //  NSInteger currentMinute = [components minute];
    if(currentHour>11)
-       NSLog(@"%@", @"Good afternoon");
-        
+       names[1]=@"Pizza";
+    if(currentHour>17)
+        names[1]=@"Meat Loaf";
+    if(currentHour>21 && currentHour<7)
+        names[1]=@"Meat Loaf";
     
 }
 
