@@ -370,7 +370,7 @@
     if(currentHour>17)
         names[1]=@"Meat Loaf";
     if(currentHour>21 && currentHour<7)
-        names[1]=@"Meat Loaf";
+        names[1]=@"Closed";
     
 }
 
