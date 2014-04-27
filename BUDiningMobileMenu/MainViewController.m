@@ -42,6 +42,8 @@
     [self setupArrays];
     
     [self parseXMLFileAtURL:@"http://sbeltran.com/diningXML.xml"];
+    
+     [self Time];
 
     // Do any additional setup after loading the view.
     NSLog(@"%@", locationTabBar);
@@ -355,6 +357,17 @@
     vegetar [0] = @"error";
     vegs [0] = @"error";
     facts [0] = @"error";
+    
+}
+
+-(void) Time{
+   
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit fromDate:[NSDate date]];
+    NSInteger currentHour = [components hour];
+  //  NSInteger currentMinute = [components minute];
+   if(currentHour>11)
+       NSLog(@"%@", @"Good afternoon");
+        
     
 }
 
