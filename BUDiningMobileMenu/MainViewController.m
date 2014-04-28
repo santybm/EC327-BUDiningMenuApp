@@ -394,6 +394,7 @@
 {
     foodIndex=(indexPath.row);
     [self performSegueWithIdentifier:@"MySegue" sender:self];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
