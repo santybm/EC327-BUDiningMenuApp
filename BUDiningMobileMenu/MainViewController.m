@@ -471,10 +471,8 @@
     if(currentHour>=11 && currentHour<17)
         [self.mealSelector setSelectedSegmentIndex:1];
     if (currentHour>=17) {
-        [self.mealSelector setSelectedSegmentIndex:1];
+        [self.mealSelector setSelectedSegmentIndex:2];
     }
-    if(currentHour>21 && currentHour<7)
-        names[1]=@"Closed";
     
 }
 
