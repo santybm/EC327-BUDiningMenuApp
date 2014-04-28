@@ -42,9 +42,9 @@
     [self setupArrays];
     
     [self parseXMLFileAtURL:@"http://sbeltran.com/diningXML.xml"];
-    
+    [self makeStations];
     [self Time];
-
+    
     // Do any additional setup after loading the view.
     NSLog(@"%@", locationTabBar);
     
@@ -62,6 +62,18 @@
 
 #pragma mark- TabBar Delegate
 
+-(void) clearArrays
+{
+     [names removeAllObjects];
+     [meal removeAllObjects];
+     [category removeAllObjects];
+     [sar removeAllObjects];
+     [vegetar removeAllObjects];
+     [vegs removeAllObjects];
+     [facts removeAllObjects];
+     [self setupArrays];
+    
+}
 
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
@@ -80,6 +92,10 @@
     HallImageTableViewCell *cell0 = [self.mainTableView dequeueReusableCellWithIdentifier:@"TableDiningImage"];
     if (index == 0)
     {
+        [self clearArrays];
+        [self parseXMLFileAtURL:@"http://sbeltran.com/diningXML.xml"];
+        [self makeStations];
+        [self Time];
         ((HallImageTableViewCell *)cell0).DHallImage.image = [UIImage imageNamed:@"warren_inAction.jpg"];
         ((HallImageTableViewCell *)cell0).diningHallName.text = @"Warren Towers Dining Hall";
         [self.mainTableView reloadData];
@@ -87,6 +103,10 @@
     }
     else if (index == 1)
     {
+        [self clearArrays];
+        [self parseXMLFileAtURL:@"http://sbeltran.com/diningXML2.xml"];
+        [self makeStations];
+        [self Time];
         ((HallImageTableViewCell *)cell0).DHallImage.image = [UIImage imageNamed:@"baystate_inAction.jpg"];
         ((HallImageTableViewCell *)cell0).diningHallName.text = @"Marciano Commons";
         [self.mainTableView reloadData];
@@ -94,6 +114,7 @@
     }
     else
     {
+        [self clearArrays];
         ((HallImageTableViewCell *)cell0).DHallImage.image = [UIImage imageNamed:@"west_inAction.jpg"];
         ((HallImageTableViewCell *)cell0).diningHallName.text = @"West Campus Dining Hall";
         [self.mainTableView reloadData];
@@ -247,16 +268,24 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    switch (indexPath.item) {
-        case 0:
-            return 85;
-        case 1:
-            return 46;
-            break;
-        default:
-            break;
-    }
+    
+    if(indexPath.item==0)
+        return 85;
+    if(category[indexPath.item] == names[indexPath.item])
+       return 46;
     return 67;
+//
+//    
+//    switch (indexPath.item) {
+//        case 0:
+//            return 85;
+//        case 1:
+//            return 46;
+//            break;
+//        default:
+//            break;
+//    }
+//    return 67;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -312,27 +341,40 @@
         cell = [[itemNameCellTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
-    ((itemNameCellTableViewCell *)cell).itemNameLabel.text = [names objectAtIndex:(indexPath.row)];
     
-    
+   //ADD ITEM NAME TO MENU
+      ((itemNameCellTableViewCell *)cell).itemNameLabel.text = [names objectAtIndex:(indexPath.row)];
     
    //Vegitarian
-    NSString *vt = vegetar[indexPath.row];
-    if ([vt rangeOfString:@"FALSE"].location == NSNotFound) {
-        ((itemNameCellTableViewCell *)cell).image1.image = [UIImage imageNamed:@"vegitarian.png"];
-    }
+    NSString* v1= vegetar[indexPath.row] ;
+    NSData* v1D = [v1 dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *output = [[NSString alloc]  initWithData:v1D encoding: NSASCIIStringEncoding];
+    output = [output stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if ([output isEqualToString: @"TRUE"])
+            ((itemNameCellTableViewCell *)cell).image1.image = [UIImage imageNamed:@"vegitarian.png"];
     //Vegan
-    NSString *veg = vegs[indexPath.row];
-    if ([veg rangeOfString:@"FALSE"].location == NSNotFound) {
+    NSString* v2= vegs[indexPath.row] ;
+    NSData* v2D = [v2 dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *outputveg = [[NSString alloc]  initWithData:v2D encoding: NSASCIIStringEncoding];
+    outputveg = [outputveg stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if ([outputveg isEqualToString: @"TRUE"])
         ((itemNameCellTableViewCell *)cell).image3.image = [UIImage imageNamed:@"vegan.png"];
-    }
+    
     //Sargent
-    NSString *sargent = sar[indexPath.row];
-    if ([sargent rangeOfString:@"FALSE"].location == NSNotFound) {
-        ((itemNameCellTableViewCell *)cell).image2.image = [UIImage imageNamed:@"sargent.png"];
-    }
+    NSString* s= vegetar[indexPath.row] ;
+    NSData* sd = [s dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *outputsar = [[NSString alloc]  initWithData:sd encoding: NSASCIIStringEncoding];
+    outputsar = [outputsar stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if ([outputsar isEqualToString: @"TRUE"])
+      ((itemNameCellTableViewCell *)cell).image2.image = [UIImage imageNamed:@"sargent.png"];
+
     return cell;
 }
+
+
+
+
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     foodIndex=(indexPath.row);
@@ -357,22 +399,49 @@
     vegetar [0] = @"error";
     vegs [0] = @"error";
     facts [0] = @"error";
+}
+
+-(void) makeStations
+{
+    for(int i=1;i<names.count;i++)
+    {
+        NSString* cat= category[i] ;
+        NSData* catAsData = [cat dataUsingEncoding:NSUTF8StringEncoding];
+        NSString *output = [[NSString alloc]  initWithData:catAsData encoding: NSASCIIStringEncoding];
+        output = [output stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if (![output isEqualToString: prev])
+    {
+        prev=output;
+        [category insertObject:output atIndex:(i)];
+        [meal insertObject:@"error" atIndex:(i)];
+        [names insertObject:output atIndex:(i)];
+        [sar insertObject:@"error" atIndex:(i)];
+        [vegetar insertObject:@"error" atIndex:(i)];
+        [vegs insertObject:@"error" atIndex:(i)];
+        [facts insertObject:@"error" atIndex:(i)];
+    }
+    
+    }
+
+    
     
 }
 
+
 -(void) Time{
-   
-    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit fromDate:[NSDate date]];
-    NSInteger currentHour = [components hour];
-  //  NSInteger currentMinute = [components minute];
-   if(currentHour>11)
-       names[1]=@"Pizza";
-    if(currentHour>17)
-        names[1]=@"Meat Loaf";
-    if(currentHour>21 && currentHour<7)
-        names[1]=@"Closed";
+//   
+//    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit fromDate:[NSDate date]];
+//    NSInteger currentHour = [components hour];
+//  //  NSInteger currentMinute = [components minute];
+//    if(currentHour>11)
+//       names[1]=@"Pizza";
+//    if(currentHour>17)
+//        names[1]=@"Meat Loaf";
+//    if(currentHour>21 && currentHour<7)
+//        names[1]=@"Closed";
     
 }
+
 
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
   //  return 68;

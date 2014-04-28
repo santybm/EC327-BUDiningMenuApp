@@ -24,14 +24,16 @@
     NSMutableArray *vegetar;
     NSMutableArray *vegs;
     NSMutableArray *facts;
+
     
     NSString *currentElement;
     NSMutableString *ElementValue;
     BOOL errorParsing;
     NSData * xmlFile;
     
+    NSString *prev;
     
-   NSInteger foodIndex;
+    NSInteger foodIndex;
     
     NSInteger currectSelection;
 
