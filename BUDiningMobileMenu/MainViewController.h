@@ -50,4 +50,5 @@
 @property (weak, nonatomic) IBOutlet UITabBarItem *warrenTab;
 @property (weak, nonatomic) IBOutlet UITabBarItem *bayStateTab;
 @property (weak, nonatomic) IBOutlet UITabBarItem *WestTab;
+
 @end
