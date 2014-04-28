@@ -1,0 +1,175 @@
+{
+ "metadata": {
+  "name": "BUDiningParser"
+ },
+ "nbformat": 3,
+ "nbformat_minor": 0,
+ "worksheets": [
+  {
+   "cells": [
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": "#By Santiago Beltran -- Apr. 27 -- Python Web Parser For BU Dining Menu Website\n\n\n###IMPORT STATEMENTS... IMPORTANT\nfrom html.parser import HTMLParser\nimport urllib.request\nfrom lxml import html\nfrom lxml import etree\nimport requests",
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 87
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": "#Get menu section only. -- Get the Raw HTML from the site\ndef getSectioninHTML():    \n    f = urllib.request.urlopen('http://www.bu.edu/dining/where-to-eat/residence-dining/warren-towers/menu/')\n    rawHTML = (f.read().decode('utf-8'))\n    #get the specials section from website\n    \n    startPoint = (rawHTML.find('<div class=\"dining-menu-meals\">'))\n    endPoint = (rawHTML.find('<ul class=\"menu-legend\">'))\n    \n    rawHTML = rawHTML[startPoint:endPoint]\n    \n    return rawHTML",
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 389
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": "#PARAM: B: Breakfast, L: Lunch, D:Dinner\n#OUTPUT: Cleaned up code that includes only the breakfast|Lunch|Dinner sections of RAW HTML code. \n#If a meal does not exist, then returns 0.\ndef getMealSectioninHTML(section):\n    \n    #get all HTML\n    rawHTML = getSectioninHTML()\n    #get breakfast\n    if(section == 'B'):\n        startPoint = (rawHTML.find('<a name=\"breakfast\"></a>'))\n        endPoint = (rawHTML.find('<a name=\"lunch\"></a>'))\n        return rawHTML[startPoint:endPoint]\n    #get lunch\n    elif(section == 'L'):\n        startPoint = (rawHTML.find('<a name=\"lunch\"></a>'))\n        endPoint = (rawHTML.find('<a name=\"dinner\"></a>'))\n        return rawHTML[startPoint:endPoint]\n    #get dinner\n    elif(section == 'D'):\n        startPoint = (rawHTML.find('<a name=\"dinner\"></a>'))\n        #endPoint = (rawHTML.find('</div><div class=\"substation brickoven-station\">'))\n        return rawHTML[startPoint:]\n    else:\n        return 0",
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 390
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": "#TEST THE Get Meal in a Section Code. UNCOMMENT TO TEST\n\n#print (getMealSectioninHTML('D'))",
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 365
+    },
+    {
+     "cell_type": "code",
+     "collapsed": true,
+     "input": "###################OLD DON'T USE:#################################################\n#page = requests.get('http://www.bu.edu/dining/where-to-eat/residence-dining/warren-towers/menu/')\n\n#Create a tree from the specified meal. \ntree = html.fromstring(getMealSectioninHTML('L'))\n\n# Get the item category titles\ncategories = tree.xpath('//span[@class=\"item-title-name\"]/text()')\n\n# get item names and properties\n#Get raw spedials of the day (in HTML)\nspecialHTML = ''\nfor elem in tree.xpath('//div[@class=\"specials\"]'):\n    #items = tree.xpath('//div[@class=\"specials\"]')\n    #prices = tree.xpath('//span[@class=\"item-price\"]/text()')\n    specialHTML = (etree.tostring(elem, pretty_print=True))\n\ntree2 = html.fromstring(specialHTML)\nitems = tree.xpath('//span[@class=\"item-menu-name\"]/text()')\nSargent = tree.xpath('//span[@class=\"sargent-icon menuitem-icon\"]')\nVegan = tree.xpath('//span[@class=\"vegan-icon menuitem-icon\"]')\nVegetarian = tree.xpath('//span[@class=\"vegetarian-icon menuitem-icon\"]')\nGluten = tree.xpath('//span[@class=\"glutenfree-icon menuitem-icon\"]')\n\n\n    \nprint (categories)\nprint (items)\nprint (Sargent)\nprint (Vegan)\nprint (Vegetarian)\nprint (Gluten)\n\n#THIS CODE IS NOT USED IN THE ACTUAL PARSING ENGINE, BUT WAS THE INITIAL RUN. DON'T DELETE. I THINK I CAN MAKE THIS CODE WORK TOO.\n",
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": "['Soup', 'Brick Oven', 'Grill', 'Impinger', 'Exhibition Saute', 'Home Zone', 'Mongolian Grill', 'International', 'Bakery']\n['Shitake Mushroom Soup', 'BBQ Chicken and Carmelized Onion Pizza', 'Cheese Pizza', 'Roasted Vegetable Pizza', 'Fish Sandwich', 'Fresh Cut French Fries', 'Old Fashioned Coleslaw', 'Mushroom Barley Pilaf', 'Whole Wheat Boston Baked Scrod with Tomato Relish', 'Black Bean Burger', 'Corn Salad', 'Basmati Rice', 'Squash Medley', 'Tandoori Chicken', 'Chicken Fried Rice Station', 'Chicken Vegetable Fajitas', 'Chocolate Chip Blondie', 'Homemade Sugar Cookie']\n[<Element span at 0x108856ef0>, <Element span at 0x108856e90>, <Element span at 0x108856e30>, <Element span at 0x108856bf0>, <Element span at 0x108856dd0>, <Element span at 0x107791cb0>, <Element span at 0x107791890>]\n[<Element span at 0x1088572f0>, <Element span at 0x108874d70>, <Element span at 0x108874cb0>, <Element span at 0x108874d10>, <Element span at 0x108863ad0>, <Element span at 0x107791ad0>]\n[<Element span at 0x108863b90>, <Element span at 0x108863950>, <Element span at 0x108863b30>, <Element span at 0x108863c50>, <Element span at 0x108863a70>]\n[<Element span at 0x10881b2f0>]\n"
+      }
+     ],
+     "prompt_number": 391
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": "#Input Parameters: catgID: categoryID [3 char: ACCEPTS: many, as defined]; mealID: meal Id [1 char: ONLY ACCEPTS: B,L,D]\n#Output: Raw HTML for the selected category based on meal.\n\n#Function Call Example (without angle brackets): getHTMLbyCategory(<Category Shorthand Identifier: 3 CHAR>,<Meal Identifier: 1 CHAR>)\ndef getHTMLbyCategory(catgID, mealID):\n    #Get raw HTML that belongs to the mealID Section from input parameter 'mealID'. This calls another function 'getMealSectioninHTML', that gets HTML code from only Breakfast, Lunch, or Dinner.\n    tree = html.fromstring(getMealSectioninHTML(mealID))\n    \n    #The tree is a node of elaments with a structure... basically view-source of a website, that tree... well that is what this one is too.\n    \n    #Switch/Case Statement Python Style\n    #Get raw HTML furthur filtered based on Food Category Type from the input parameter 'catgID'\n    if (catgID == 'BRI'):\n        for elem in tree.xpath('//div[@class=\"station brickoven-station\"]'):\n            return (etree.tostring(elem, pretty_print=True))\n    ####Example elif with comments explaining the format, rules, and operation.####\n    #elif (else if) , check if the input parameter 'catgID' is equal to string 'DEL'. 'DEL' is programmer defined.\n    #All catgID options must be unique to all the other catgIDs. I usually took the first 3 charaters in the station name. MAKE SURE IT'S UNIQUE\n    elif (catgID == 'DEL'):\n        #Just follow this format. It calls a function in the lxml library that gets HTML node where it finds a <div> element w/ the class=\"station deli-station\"\n        #How to get the station name and class id? Go to the menu, select a meal, and then view source. CTRL-F for <div class=\"inside container\">... \n        ##### ...cont. Look at the <div class=\"station XXXX-station id=...>\". Copy the entire class name with quotes and add it to the part after class in the example.\n        ##### ...cont. Lastly give it a name above in (catgID = 'XXX') that is unique and relevant to the station name.\n        for elem in tree.xpath('//div[@class=\"station deli-station\"]'):\n            #since there is only one node (also why it's important to be inside a meal -- Breakfast, Lunch, Dinner) return the node (plain HTML code). \n            return (etree.tostring(elem, pretty_print=True))\n    #repeat...see above for explaination. \n    elif (catgID == 'EXH'):\n        for elem in tree.xpath('//div[@class=\"station exhibitionsaute-station\"]'):\n            return (etree.tostring(elem, pretty_print=True))\n    elif (catgID == 'HOM'):\n        for elem in tree.xpath('//div[@class=\"station homezone-station\"]'):\n            return (etree.tostring(elem, pretty_print=True))\n    elif (catgID == 'IMP'):\n        for elem in tree.xpath('//div[@class=\"station impinger-station\"]'):\n            return (etree.tostring(elem, pretty_print=True))\n    elif (catgID == 'INT'):\n        for elem in tree.xpath('//div[@class=\"station international-station\"]'):\n            return (etree.tostring(elem, pretty_print=True))\n    elif (catgID == 'MON'):\n        for elem in tree.xpath('//div[@class=\"station mongoliangrill-station\"]'):\n            return (etree.tostring(elem, pretty_print=True))\n    elif (catgID == 'ROT'):\n        for elem in tree.xpath('//div[@class=\"station rotisserie-station\"]'):\n            return (etree.tostring(elem, pretty_print=True))\n    elif (catgID == 'SAL'):\n        for elem in tree.xpath('//div[@class=\"station saladbar-station\"]'):\n            return (etree.tostring(elem, pretty_print=True))\n    elif (catgID == 'SNA'):    \n        for elem in tree.xpath('//div[@class=\"station snacks-station\"]'):\n            return (etree.tostring(elem, pretty_print=True))\n    elif (catgID == 'SOU'):\n        for elem in tree.xpath('//div[@class=\"station soup-station\"]'):\n            return (etree.tostring(elem, pretty_print=True))\n    elif (catgID == 'GRI'):\n        for elem in tree.xpath('//div[@class=\"station grill-station\"]'):\n            return (etree.tostring(elem, pretty_print=True))\n    elif (catgID == 'VEG'):\n        for elem in tree.xpath('//div[@class=\"station vegandelights-station\"]'):\n            return (etree.tostring(elem, pretty_print=True))\n    elif (catgID == 'WAF'): \n        for elem in tree.xpath('//div[@class=\"station waffles-station\"]'):\n            return (etree.tostring(elem, pretty_print=True))\n    elif (catgID == 'BAK'):\n        for elem in tree.xpath('//div[@class=\"station bakery-station\"]'):\n            return (etree.tostring(elem, pretty_print=True))\n    #Add missing category identifiers here from other dining halls. ALL MUST BE UNIQUE. If it already exists above, it can not be added below.\n    #Follow elif template for new categories and first example above.\n    #### ADDITIONAL CATEGORIES HERE #####\n    \n    \n    \n    ### END OF ADDITIONAL CATEGORIES HERE #####\n    \n    #default. Error must be caught, return None. DO NOT EDIT THIS\n    else:\n        return None",
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 368
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": "#Test code: This gives you the raw html for each category type of food for a lunch menu. Make sure to add any categories added later to the list.\n# If the category is available, then it gives the RAW html Code. Else, give you ---- CATG XXXXX IS NOT AVAILABLE. Make sure that it actually...\n#... is not avaluable and not that it's a logical error. \n\ndef testSortingByCategoryRAW():\n    categories = ['BRI', 'DEL', 'EXH', 'HOM', 'IMP', 'INT', 'MON', 'ROT', 'SAL', 'SNA', 'SOU', 'GRI', 'VEG', 'WAF']\n\n    for item in categories:\n        extractCode = getHTMLbyCategory(item, 'L')\n        if (extractCode == None):\n            print (\"--------------- CATG \" + item + \" IS NOT AVAILABLE --------------\")\n        else:\n            print (extractCode)\n\n####UNCOMMENT LINE BELOW TO GET TEST OUTPUT####\n#testSortingByCategoryRAW()",
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 382
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": "#Gets the HTML code for the item block inside a meal. \n#Input Parameter: HTML Code [already inside a meal block].\n#OUTPUT: HTML Code for just the items in that meal. \ndef getItemHTML(code):\n    #Setup a LXML Tree from the raw code.\n    tree12 = html.fromstring(code)\n    #Get the node where the <ul> class is equal to 'items'\n    for elem1 in tree12.xpath('//ul[@class=\"items\"]'):\n        #Return the node (plain HTML code) of the <ul>...</ul> block\n        return (etree.tostring(elem1, pretty_print=True))\n",
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 383
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": "#Get all items in a category with properties. The good stuff.\n#INPUT PARAMETERS: A valid catgID and mealID (what station category and what meal -- B,L,D)\ndef getItemsWithPropertiesFromCATG(catgID, mealID):\n    \n    #Save Raw HTML from category selection\n    extractCode = getHTMLbyCategory(catgID, mealID)\n    \n    #Error Validation. If the menu does not have a section, then it return \"N/A\" for that section. This might change to a number for easire use later.\n    if (extractCode == None):\n        return \"N/A\";\n    \n    #Dictionary of items, KEY: item name, DEFINITION: Properties\n    itemDict = {}\n    \n    #USLESS CODE, BUT I'M SCARED TO COMPLETELY ERASE IT...So keep it.\n    #Get clean tree (LXML) from raw HTML\n    #tree = html.fromstring(extractCode)\n    \n    #Get all items, still in raw HTML, but less\n    #items = tree.xpath('//span[@class=\"item-menu-name\"]/text()')\n    ##### END OF USELESS CODE #####\n    \n    #Get raw HTML, but only the items. \n    #Basically, we're getting to the really pure stuff about now, but not enough to sell it yet.\n    itemsExtractedCode = getItemHTML(extractCode)\n    #Get clean tree of items html only. It just keeps getting purer -- A browser would like it, but not good enough for human use.\n    itemTree = html.fromstring(itemsExtractedCode)\n    \n    ### ANOTHER SET OF USELESS CODE... a remittance of my child node code days... 1childDeep, 2childDeep, 3childDeep, limbo\n    #Get childs (li) and the id\n    #for itemID in itemTree.iterchildren():\n    #    child = (itemID.getchildren())\n    #    print (itemID.values())\n    ##### END OF USELESS CODE #####\n\n    #Get a list of elements where the class name is equal to 'item-icons' :: Here we get the Special Icon names, Vegan|Sargent|Vg|Glut\n    elementList = itemTree.find_class('item-icons')\n    \n    #Interate over that elementList. How it looks [[element li 0x000000],[element li 0x000000],[....]]\n    # and visually:\n    #   <a href=\"#ingredients-1973270909\" class=\"\" rel=\"prettyPhoto\">  *** SECOND PARENT  -- THE OMG THIS IS AMAZING STUFF (NAME & Image ID)\n    #                 ^^^^^^\n    #                  ||||\n    #   <span class=\"item-inner-grid\">  ***  FIRST PARENT -- THE WTF, WHY ARE YOU HERE STUFF\n    #                ^^^^^^\n    #                 ||||\n    #       <span class=\"item-icons\">  **** YOU ARE HERE -- THE GOOD STUFF (The icon IDs)\n    # (See why there was child-ception earlier.)\n    for element in elementList:\n        #Setup a list (like a vector in C++) for all the property info\n        propertyList = []\n        #Look above for that these element variables mean\n        parent1 = element.getparent()\n        parent2 = parent1.getparent()\n        #Get name of food item\n        itemNameElement = parent2.find_class('item-menu-name') #Told you the second parent is were it's at! ;)\n        #This returns a list but since every item can only have one name, we just get the first value of the list.\n        itemName = itemNameElement[0].text_content()\n        #Go back two elements [Parent 2] again to get the image ID\n        parent2Values = parent2.values()\n        #Go back down to the you are here point and get special types (Sargent, Vegan, etc.) & Save to list with append\n        propertyList.append(element.text_content())\n        #Get the ID (for image) & Save to list. Again only one image so we get the first element in the list.\n        propertyList.append(parent2Values[0])\n        #Create a dictionary item with the key of the itemName and the definition of the property list.\n        itemDict[itemName] = propertyList\n        #get out of the current item. Not needed, but a just in case statement.\n        continue \n        #Words of Inspiration:\n        #IT WORKED!!!! \n    \n    \n    #####USELESS CODE -- I was trying to figuru out where the well I was in the child/parent mess. ########\n    #for element in itemTree.getiterator():\n     \n    #    if (element.tag == 'ul' or element.tag == 'li'):\n    #        continue\n    #    else:\n    #        print (element.tag, '-', element.values())\n    #        print (\"YOU FOUND ME\")\n    #    for interChild in child:\n    #        print (interChild.values())\n    ############## END OF USELESS CODE ###############\n    \n    \n\n    #Return a dictionary of every item on the menu for that particular meal and category. :)\n    return itemDict\n    ",
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 386
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": "#Test Code to read the dictionary at every category for lunch. Includes some styling for readability.\n\ndef testItemDictionaryWithPrinting():\n    categories = ['BRI', 'DEL', 'EXH', 'HOM', 'IMP', 'INT', 'MON', 'ROT', 'SAL', 'SNA', 'SOU', 'GRI', 'VEG', 'WAF']\n\n    for CATtype in categories:\n        print (getItemsWithPropertiesFromCATG(CATtype, 'L'))\n        print (\"-------------------------------------------------\")\n###RUN THE LINE BELOW TO TEST THE PROGRAM:####\ntestItemDictionaryWithPrinting()",
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": "{'Cheese Pizza': ['Vegetarian', '#ingredients-1645321089'], 'BBQ Chicken and Carmelized Onion Pizza': ['Sargent Choice', '#ingredients-1973270909'], 'Roasted Vegetable Pizza': ['Vegetarian', '#ingredients-737853147']}\n-------------------------------------------------\nN/A\n-------------------------------------------------\n{'Black Bean Burger': ['VeganSargent Choice', '#ingredients-1568647400'], 'Corn Salad': ['Vegan', '#ingredients-1542941164']}"
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": "\n-------------------------------------------------\n{'Basmati Rice': ['VeganGluten Free', '#ingredients-1693899806'], 'Squash Medley': ['VeganSargent Choice', '#ingredients-1440626298'], 'Tandoori Chicken': ['', '#ingredients-1460214221']}"
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": "\n-------------------------------------------------\n{'Whole Wheat Boston Baked Scrod with Tomato Relish': ['Sargent Choice', '#ingredients-1453601374'], 'Mushroom Barley Pilaf': ['VeganSargent Choice', '#ingredients-806746630']}\n-------------------------------------------------\n{'Chicken Vegetable Fajitas': ['Sargent Choice', '#ingredients-1736048237']}"
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": "\n-------------------------------------------------\n{'Chicken Fried Rice Station': ['Sargent Choice', '#ingredients-1999823180']}\n-------------------------------------------------\nN/A"
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": "\n-------------------------------------------------\nN/A"
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": "\n-------------------------------------------------\nN/A"
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": "\n-------------------------------------------------\n{'Shitake Mushroom Soup': ['Vegetarian', '#ingredients-1707090330']}"
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": "\n-------------------------------------------------\n{'Fish Sandwich': ['', '#ingredients-849641913'], 'Fresh Cut French Fries': ['Vegan', '#ingredients-1152031993'], 'Old Fashioned Coleslaw': ['', '#ingredients-1133080886']}"
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": "\n-------------------------------------------------\nN/A"
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": "\n-------------------------------------------------\nN/A"
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": "\n-------------------------------------------------\n"
+      }
+     ],
+     "prompt_number": 388
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": "# LIFE IS GOOD!",
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 185
+    }
+   ],
+   "metadata": {}
+  }
+ ]
+}
