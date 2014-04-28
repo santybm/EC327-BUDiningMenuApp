@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="sJb-ln-V47">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="sJb-ln-V47">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -125,7 +125,7 @@
                                 </connections>
                             </tabBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hzD-Oi-W0c">
-                                <rect key="frame" x="-7" y="21" width="334" height="29"/>
+                                <rect key="frame" x="-7" y="20" width="334" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Breakfast"/>
@@ -133,6 +133,9 @@
                                     <segment title="Dinner"/>
                                 </segments>
                                 <color key="tintColor" red="0.80000000000000004" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="userChangedSelectedMeal:" destination="sJb-ln-V47" eventType="valueChanged" id="sJm-5r-oOj"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -143,6 +146,7 @@
                         <outlet property="bayStateTab" destination="b6O-NS-5qQ" id="wwd-6o-sik"/>
                         <outlet property="locationTabBar" destination="81a-uw-TWh" id="oXV-b9-Wi9"/>
                         <outlet property="mainTableView" destination="Gq9-Xy-97E" id="jms-fz-2to"/>
+                        <outlet property="mealSelector" destination="hzD-Oi-W0c" id="xp9-P5-9u0"/>
                         <outlet property="warrenTab" destination="FUH-6N-xrZ" id="jfG-j5-Q9g"/>
                         <segue destination="38X-mg-YDL" kind="modal" identifier="MySegue" id="Io9-3K-VGg"/>
                     </connections>

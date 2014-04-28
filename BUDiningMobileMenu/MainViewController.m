@@ -14,6 +14,8 @@
 
 @interface MainViewController ()
 
+
+
 @end
 
 @implementation MainViewController
@@ -53,6 +55,7 @@
     //Set the default TabBar item
     [self.locationTabBar setSelectedItem:self.warrenTab];
     [self.locationTabBar setSelectedImageTintColor:[UIColor colorWithRed:204.0/255 green:0 blue:0 alpha:1]];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -74,6 +77,19 @@
      [facts removeAllObjects];
      [self setupArrays];
     
+}
+
+
+- (IBAction)userChangedSelectedMeal:(id)sender {
+    if(self.mealSelector.selectedSegmentIndex == 0){
+        NSLog(@"%@", @"Breakfast");
+    }
+    if (self.mealSelector.selectedSegmentIndex == 1){
+        NSLog(@"%@", @"Lunch");
+    }
+    if (self.mealSelector.selectedSegmentIndex == 2){
+        NSLog(@"%@", @"Dinner");
+    }
 }
 
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
@@ -444,16 +460,20 @@
 
 
 -(void) Time{
-//   
-//    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit fromDate:[NSDate date]];
-//    NSInteger currentHour = [components hour];
-//  //  NSInteger currentMinute = [components minute];
-//    if(currentHour>11)
-//       names[1]=@"Pizza";
-//    if(currentHour>17)
-//        names[1]=@"Meat Loaf";
-//    if(currentHour>21 && currentHour<7)
-//        names[1]=@"Closed";
+  
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit fromDate:[NSDate date]];
+    NSInteger currentHour = [components hour];
+  //  NSInteger currentMinute = [components minute];
+    //Set the default meal in SegmentedController
+    if(currentHour>7 && currentHour<11)
+        [self.mealSelector setSelectedSegmentIndex:0];
+    if(currentHour>=11 && currentHour<17)
+        [self.mealSelector setSelectedSegmentIndex:1];
+    if (currentHour>=17) {
+        [self.mealSelector setSelectedSegmentIndex:1];
+    }
+    if(currentHour>21 && currentHour<7)
+        names[1]=@"Closed";
     
 }
 

@@ -40,6 +40,8 @@
 }
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *mealSelector;
+
 @property (nonatomic, retain) IBOutlet DetailViewController *detailViewController;
 
 - (void)parseXMLFileAtURL:(NSString *)URL;
