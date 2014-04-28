@@ -34,6 +34,7 @@
     NSString *prev;
     
     NSInteger foodIndex;
+    NSInteger index;
     
     NSInteger currectSelection;
 

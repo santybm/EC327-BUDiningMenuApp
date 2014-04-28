@@ -44,9 +44,10 @@
     
     [self setupArrays];
     
-    [self parseXMLFileAtURL:@"http://sbeltran.com/diningXML.xml"];
-    [self makeStations];
+    //[self parseXMLFileAtURL:@"http://sbeltran.com/diningXML.xml"];
     [self Time];
+    [self makeStations];
+    [self.mainTableView reloadData];
     
     // Do any additional setup after loading the view.
     NSLog(@"%@", locationTabBar);
@@ -55,6 +56,7 @@
     //Set the default TabBar item
     [self.locationTabBar setSelectedItem:self.warrenTab];
     [self.locationTabBar setSelectedImageTintColor:[UIColor colorWithRed:204.0/255 green:0 blue:0 alpha:1]];
+    
     
 }
 
@@ -82,13 +84,20 @@
 
 - (IBAction)userChangedSelectedMeal:(id)sender {
     if(self.mealSelector.selectedSegmentIndex == 0){
+        
         NSLog(@"%@", @"Breakfast");
+        [self makeStations];
+        [self.mainTableView reloadData];
     }
     if (self.mealSelector.selectedSegmentIndex == 1){
         NSLog(@"%@", @"Lunch");
+        [self makeStations];
+        [self.mainTableView reloadData];
     }
     if (self.mealSelector.selectedSegmentIndex == 2){
         NSLog(@"%@", @"Dinner");
+        [self makeStations];
+        [self.mainTableView reloadData];
     }
 }
 
@@ -97,7 +106,7 @@
     tabBar.selectedImageTintColor = [UIColor colorWithRed:204.0/255 green:0 blue:0 alpha:1];
 
     
-    NSInteger index = [tabBar.items indexOfObject:item];
+    index = [tabBar.items indexOfObject:item];
     
     
     currectSelection = index;
@@ -111,8 +120,9 @@
     {
         [self clearArrays];
         [self parseXMLFileAtURL:@"http://sbeltran.com/diningXML.xml"];
-        [self makeStations];
         [self Time];
+        [self makeStations];
+
         ((HallImageTableViewCell *)cell0).DHallImage.image = [UIImage imageNamed:@"warren_inAction.jpg"];
         ((HallImageTableViewCell *)cell0).diningHallName.text = @"Warren Towers Dining Hall";
         [self.mainTableView reloadData];
@@ -122,8 +132,9 @@
     {
         [self clearArrays];
         [self parseXMLFileAtURL:@"http://sbeltran.com/diningXML2.xml"];
-        [self makeStations];
         [self Time];
+        [self makeStations];
+
         ((HallImageTableViewCell *)cell0).DHallImage.image = [UIImage imageNamed:@"baystate_inAction.jpg"];
         ((HallImageTableViewCell *)cell0).diningHallName.text = @"Marciano Commons";
         [self.mainTableView reloadData];
@@ -288,7 +299,7 @@
     
     if(indexPath.item==0)
         return 85;
-    if(category[indexPath.item] == names[indexPath.item])
+    if([names objectAtIndex:(indexPath.item)]==[category objectAtIndex:(indexPath.item)])
        return 46;
     return 67;
 //
@@ -371,7 +382,7 @@
    //ADD ITEM NAME TO MENU
       if([names objectAtIndex:(indexPath.row)]==[category objectAtIndex:(indexPath.row)])
       {
-     ((categoryTitleTableViewCell *)cell).catTitle.text = [names objectAtIndex:(indexPath.row)];
+          ((categoryTitleTableViewCell *)cell).catTitle.text = [names objectAtIndex:(indexPath.row)];
       }
     else
       ((itemNameCellTableViewCell *)cell).itemNameLabel.text = [names objectAtIndex:(indexPath.row)];
@@ -433,9 +444,95 @@
     facts [0] = @"error";
 }
 
--(void) makeStations
+- (void) checkMealType
 {
+    [self clearArrays];
+    switch (index) {
+        case 0:
+            [self parseXMLFileAtURL:@"http://sbeltran.com/diningXML.xml"];
+            [self.mainTableView reloadData];
+            break;
+        case 1:
+            [self parseXMLFileAtURL:@"http://sbeltran.com/diningXML2.xml"];
+            [self.mainTableView reloadData];
+            break;
+        default:
+            [self parseXMLFileAtURL:@"http://sbeltran.com/diningXML2.xml"];
+            [self.mainTableView reloadData];
+            break;
+    }
+    [self.mainTableView reloadData];
+    
     for(int i=1;i<names.count;i++)
+    {
+       
+        NSString* type= meal[i] ;
+        NSData* typeAsData = [type dataUsingEncoding:NSUTF8StringEncoding];
+        NSString *typeOutput = [[NSString alloc]  initWithData:typeAsData encoding: NSASCIIStringEncoding];
+        typeOutput = [typeOutput stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        
+        int topMealselector = self.mealSelector.selectedSegmentIndex;
+        
+        
+        if(topMealselector==0 && ![typeOutput isEqualToString:@"Breakfast"])
+        {
+            
+            [category removeObjectAtIndex:(i)];
+            [names removeObjectAtIndex:(i)];
+            [meal removeObjectAtIndex:(i)];
+            [vegetar removeObjectAtIndex:(i)];
+            [vegs removeObjectAtIndex:(i)];
+            [sar removeObjectAtIndex:(i)];
+            [facts removeObjectAtIndex:(i)];
+            i=0;
+            [self.mainTableView reloadData];
+            
+            
+        }
+        
+        if(topMealselector==1 && ![typeOutput isEqualToString:@"Lunch"])
+        {
+            
+            [category removeObjectAtIndex:(i)];
+            [names removeObjectAtIndex:(i)];
+            [meal removeObjectAtIndex:(i)];
+            [vegetar removeObjectAtIndex:(i)];
+            [vegs removeObjectAtIndex:(i)];
+            [sar removeObjectAtIndex:(i)];
+            [facts removeObjectAtIndex:(i)];
+            i=0;
+            [self.mainTableView reloadData];
+            
+            
+        }
+        
+        if(topMealselector==2 && ![typeOutput isEqualToString:@"Dinner"])
+        {
+            
+            [category removeObjectAtIndex:(i)];
+            [names removeObjectAtIndex:(i)];
+            [meal removeObjectAtIndex:(i)];
+            [vegetar removeObjectAtIndex:(i)];
+            [vegs removeObjectAtIndex:(i)];
+            [sar removeObjectAtIndex:(i)];
+            [facts removeObjectAtIndex:(i)];
+            i=0;
+            [self.mainTableView reloadData];
+            
+            
+        }
+        [self.mainTableView reloadData];
+        
+    }
+    
+}
+
+
+- (void) makeStations
+{
+    [self checkMealType];
+    prev = @"asfa";
+     for(int i=1;i<names.count;i++)
     {
         NSString* cat= category[i] ;
         NSData* catAsData = [cat dataUsingEncoding:NSUTF8StringEncoding];
@@ -461,7 +558,7 @@
 
 
 -(void) Time{
-  
+    
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit fromDate:[NSDate date]];
     NSInteger currentHour = [components hour];
   //  NSInteger currentMinute = [components minute];
@@ -472,6 +569,8 @@
         [self.mealSelector setSelectedSegmentIndex:1];
     if (currentHour>=17) {
         [self.mealSelector setSelectedSegmentIndex:2];
+    
+    [self.mainTableView reloadData];
     }
     
 }
