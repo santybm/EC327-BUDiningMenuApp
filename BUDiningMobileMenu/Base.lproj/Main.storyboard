@@ -46,7 +46,7 @@
                                             <outlet property="diningHallName" destination="95a-ZA-3RV" id="rog-Cq-AAy"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="categoryMenu" textLabel="deq-A6-DJf" rowHeight="46" style="IBUITableViewCellStyleDefault" id="1Ca-vU-gYe" customClass="categoryTitleTableViewCell">
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="categoryMenu" textLabel="deq-A6-DJf" rowHeight="46" style="IBUITableViewCellStyleDefault" id="1Ca-vU-gYe" customClass="categoryTitleTableViewCell">
                                         <rect key="frame" x="0.0" y="108" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Ca-vU-gYe" id="2NI-lb-qEY">

@@ -10,6 +10,7 @@
 #import "itemNameCellTableViewCell.h"
 #import "NutritionViewController.h"
 #import "HallImageTableViewCell.h"
+#import "categoryTitleTableViewCell.h"
 
 @interface MainViewController ()
 
@@ -341,8 +342,22 @@
         cell = [[itemNameCellTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
+    if([names objectAtIndex:(indexPath.row)]==[category objectAtIndex:(indexPath.row)])
+    {
+    cell = [tableView dequeueReusableCellWithIdentifier:categoryTableIdentifer];
+    
+    if (cell == nil) {
+        cell = [[itemNameCellTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:categoryTableIdentifer];
+    }
+    }
+    
     
    //ADD ITEM NAME TO MENU
+      if([names objectAtIndex:(indexPath.row)]==[category objectAtIndex:(indexPath.row)])
+      {
+     ((categoryTitleTableViewCell *)cell).catTitle.text = [names objectAtIndex:(indexPath.row)];
+      }
+    else
       ((itemNameCellTableViewCell *)cell).itemNameLabel.text = [names objectAtIndex:(indexPath.row)];
     
    //Vegitarian
