@@ -308,7 +308,7 @@
     if(indexPath.item==0)
         return 85;
     if([names objectAtIndex:(indexPath.item)]==[category objectAtIndex:(indexPath.item)])
-       return 46;
+       return 24;
     return 67;
 //
 //    
