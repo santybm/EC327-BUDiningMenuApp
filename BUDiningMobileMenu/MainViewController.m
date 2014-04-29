@@ -49,19 +49,34 @@
     [self makeStations];
     [self.mainTableView reloadData];
     
-    // Do any additional setup after loading the view.
-    NSLog(@"%@", locationTabBar);
+
+    //NSLog(@"%@", locationTabBar);
     
     
     //Set the default TabBar item
     [self.locationTabBar setSelectedItem:self.warrenTab];
     [self.locationTabBar setSelectedImageTintColor:[UIColor colorWithRed:204.0/255 green:0 blue:0 alpha:1]];
     
+    [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidEnterBackgroundNotification object: nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note){
+       
+        [names removeAllObjects];
+        [meal removeAllObjects];
+        [category removeAllObjects];
+        [sar removeAllObjects];
+        [vegetar removeAllObjects];
+        [vegs removeAllObjects];
+        [facts removeAllObjects];
+    }];
+    
+    //Ensure app refreshed on DidBecomeActive
     [[NSNotificationCenter defaultCenter] addObserverForName: UIApplicationDidBecomeActiveNotification object: nil queue: [NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
         
-        [super viewDidLoad];
-        [self viewDidLoad];
-        NSLog(@"%@", @"Did become active");
+        [self setupArrays];
+        [self Time];
+        [self makeStations];
+        [self.mainTableView reloadData];
+        
+        //NSLog(@"%@", @"Did become active");
         
     }];
     
@@ -71,7 +86,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark- TabBar Delegate
@@ -86,7 +100,6 @@
      [vegs removeAllObjects];
      [facts removeAllObjects];
      [self setupArrays];
-    
 }
 
 
@@ -128,7 +141,7 @@
     {
         [self clearArrays];
         [self parseXMLFileAtURL:@"http://sbeltran.com/diningXML.xml"];
-        [self Time];
+        //[self Time];
         [self makeStations];
 
         ((HallImageTableViewCell *)cell0).DHallImage.image = [UIImage imageNamed:@"warren_inAction.jpg"];
@@ -140,7 +153,7 @@
     {
         [self clearArrays];
         [self parseXMLFileAtURL:@"http://sbeltran.com/diningXML2.xml"];
-        [self Time];
+        //[self Time];
         [self makeStations];
 
         ((HallImageTableViewCell *)cell0).DHallImage.image = [UIImage imageNamed:@"baystate_inAction.jpg"];
