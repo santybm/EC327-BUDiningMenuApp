@@ -132,7 +132,7 @@
     {
         [self clearArrays];
         [self parseXMLFileAtURL:@"http://sbeltran.com/diningXML2.xml"];
-        [self Time];
+
         [self makeStations];
 
         ((HallImageTableViewCell *)cell0).DHallImage.image = [UIImage imageNamed:@"baystate_inAction.jpg"];
