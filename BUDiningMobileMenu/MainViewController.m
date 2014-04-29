@@ -29,9 +29,9 @@
     }
     return self;
 }
-
 - (void)viewDidLoad
 {
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
     [super viewDidLoad];
 
     meal = [[NSMutableArray alloc] init];
@@ -56,6 +56,14 @@
     //Set the default TabBar item
     [self.locationTabBar setSelectedItem:self.warrenTab];
     [self.locationTabBar setSelectedImageTintColor:[UIColor colorWithRed:204.0/255 green:0 blue:0 alpha:1]];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName: UIApplicationDidBecomeActiveNotification object: nil queue: [NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        
+        [super viewDidLoad];
+        [self viewDidLoad];
+        NSLog(@"%@", @"Did become active");
+        
+    }];
     
     
 }
