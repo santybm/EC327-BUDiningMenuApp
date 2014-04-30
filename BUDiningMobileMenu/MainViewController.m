@@ -41,6 +41,7 @@
     vegetar = [[NSMutableArray alloc] init];
     vegs = [[NSMutableArray alloc] init];
     facts = [[NSMutableArray alloc] init];
+    gluton = [[NSMutableArray alloc] init];
     
     [self setupArrays];
     
@@ -84,6 +85,7 @@
      [sar removeAllObjects];
      [vegetar removeAllObjects];
      [vegs removeAllObjects];
+     [gluton removeAllObjects];
      [facts removeAllObjects];
      [self setupArrays];
     
@@ -242,7 +244,10 @@
         [vegetar addObject: ElementValue];
         
     }
-
+    if ([elementName isEqualToString:@"isVegetarian"]) {
+        item = [[NSMutableDictionary alloc] init];
+        [gluton addObject: ElementValue];
+    }
     if ([elementName isEqualToString:@"factsURL"]) {
         item = [[NSMutableDictionary alloc] init];
         [facts addObject: ElementValue];
@@ -276,6 +281,7 @@
           NSLog(@"%@", [sar objectAtIndex:i] );
           NSLog(@"%@", [vegetar objectAtIndex:i] );
           NSLog(@"%@", [vegs objectAtIndex:i] );
+          NSLog(@"%@", [gluton objectAtIndex:i] );
           NSLog(@"%@", [facts objectAtIndex:i] );
      
         
@@ -330,6 +336,7 @@
     static NSString *simpleTableIdentifier = @"itemNameCell";
     static NSString *categoryTableIdentifer = @"categoryMenu";
     
+    
     NSString *identityString = @"";
     
     switch (indexPath.item) {
@@ -373,7 +380,11 @@
     
     itemNameCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
-    if (cell == nil) {
+    cell.image1.image = nil;
+    cell.image2.image = nil;
+    cell.image3.image = nil;
+    
+      if (cell == nil) {
         cell = [[itemNameCellTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
@@ -394,30 +405,53 @@
       }
     else
       ((itemNameCellTableViewCell *)cell).itemNameLabel.text = [names objectAtIndex:(indexPath.row)];
-    
+   
    //Vegitarian
-    NSString* v1= vegetar[indexPath.row] ;
+    NSString* v1= vegetar[indexPath.item];
     NSData* v1D = [v1 dataUsingEncoding:NSUTF8StringEncoding];
     NSString *output = [[NSString alloc]  initWithData:v1D encoding: NSASCIIStringEncoding];
     output = [output stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     if ([output isEqualToString: @"TRUE"])
-            ((itemNameCellTableViewCell *)cell).image1.image = [UIImage imageNamed:@"vegitarian.png"];
+    {
+        cell.image1.image = [UIImage imageNamed:@"vegitarian.png"];
+        //((itemNameCellTableViewCell *)cell).image1.image = [UIImage imageNamed:@"vegitarian.png"];
+    }
+    
     //Vegan
-    NSString* v2= vegs[indexPath.row] ;
+    NSString* v2= vegs[indexPath.item];
     NSData* v2D = [v2 dataUsingEncoding:NSUTF8StringEncoding];
     NSString *outputveg = [[NSString alloc]  initWithData:v2D encoding: NSASCIIStringEncoding];
     outputveg = [outputveg stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    if ([outputveg isEqualToString: @"TRUE"])
-        ((itemNameCellTableViewCell *)cell).image3.image = [UIImage imageNamed:@"vegan.png"];
+    if ([outputveg isEqualToString:@"TRUE"])
+    {
+            cell.image1.image = [UIImage imageNamed:@"vegan.png"];
+            //((itemNameCellTableViewCell *)cell).image1.image = [UIImage imageNamed:@"vegan.png"];
+    }
+   
     
     //Sargent
-    NSString* s= vegetar[indexPath.row] ;
+    NSString* s= vegetar[indexPath.item] ;
     NSData* sd = [s dataUsingEncoding:NSUTF8StringEncoding];
     NSString *outputsar = [[NSString alloc]  initWithData:sd encoding: NSASCIIStringEncoding];
     outputsar = [outputsar stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     if ([outputsar isEqualToString: @"TRUE"])
-      ((itemNameCellTableViewCell *)cell).image2.image = [UIImage imageNamed:@"sargent.png"];
-
+    {
+        cell.image2.image = [UIImage imageNamed:@"sargent.png"];
+        //((itemNameCellTableViewCell *)cell).image2.image = [UIImage imageNamed:@"sargent.png"];
+    
+    }
+    
+    //Gluton
+    NSString* g= vegetar[indexPath.item] ;
+    NSData* gd = [g dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *outputgluton = [[NSString alloc]  initWithData:gd encoding: NSASCIIStringEncoding];
+    outputgluton = [outputgluton stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if ([outputgluton isEqualToString: @"TRUE"])
+    {
+        cell.image3.image = [UIImage imageNamed:@"gluton.png"];
+        //((itemNameCellTableViewCell *)cell).image2.image = [UIImage imageNamed:@"sargent.png"];
+        
+    }
     return cell;
 }
 
@@ -449,6 +483,7 @@
     sar [0] = @"error";;
     vegetar [0] = @"error";
     vegs [0] = @"error";
+    gluton [0] = @"error";
     facts [0] = @"error";
 }
 
@@ -490,6 +525,7 @@
             [meal removeObjectAtIndex:(i)];
             [vegetar removeObjectAtIndex:(i)];
             [vegs removeObjectAtIndex:(i)];
+            [gluton removeObjectAtIndex:(i)];
             [sar removeObjectAtIndex:(i)];
             [facts removeObjectAtIndex:(i)];
             i=0;
@@ -506,6 +542,7 @@
             [meal removeObjectAtIndex:(i)];
             [vegetar removeObjectAtIndex:(i)];
             [vegs removeObjectAtIndex:(i)];
+            [gluton removeObjectAtIndex:(i)];
             [sar removeObjectAtIndex:(i)];
             [facts removeObjectAtIndex:(i)];
             i=0;
@@ -522,6 +559,7 @@
             [meal removeObjectAtIndex:(i)];
             [vegetar removeObjectAtIndex:(i)];
             [vegs removeObjectAtIndex:(i)];
+            [gluton removeObjectAtIndex:(i)];
             [sar removeObjectAtIndex:(i)];
             [facts removeObjectAtIndex:(i)];
             i=0;
@@ -555,6 +593,7 @@
         [sar insertObject:@"error" atIndex:(i)];
         [vegetar insertObject:@"error" atIndex:(i)];
         [vegs insertObject:@"error" atIndex:(i)];
+        [gluton insertObject:@"error" atIndex:(i)];
         [facts insertObject:@"error" atIndex:(i)];
     }
     

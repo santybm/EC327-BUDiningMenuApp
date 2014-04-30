@@ -223,6 +223,7 @@
         <image name="warren.png" width="45" height="30"/>
         <image name="west.png" width="43" height="27"/>
     </resources>
+    <color key="tintColor" red="0.80000000000000004" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
