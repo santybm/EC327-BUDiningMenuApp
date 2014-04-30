@@ -29,9 +29,22 @@
 
 - (void)viewDidLoad
 {
-    NSString *urlString = [NSString stringWithString:nutritionImg[num]];
-    NutritionImage.image=[UIImage imageWithData:[NSData dataWithContentsOfURL: [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]]]];
     [super viewDidLoad];
+    
+    NSString *urlString = [NSString stringWithString:nutritionImg[num]];
+    
+    NutritionImage.image=[UIImage imageWithData:[NSData dataWithContentsOfURL: [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]]]];
+    
+    
+    //Close Modal Controller
+    [[NSNotificationCenter defaultCenter] addObserverForName: UIApplicationDidEnterBackgroundNotification object: nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    }];
+    
+
+    
     // Do any additional setup after loading the view.
 }
 
@@ -45,6 +58,8 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
 
 /*
 #pragma mark - Navigation
