@@ -50,6 +50,10 @@
     [self makeStations];
     [self.mainTableView reloadData];
     
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.mainTableView addSubview:refreshControl];
+    
 
     //NSLog(@"%@", locationTabBar);
     
@@ -82,6 +86,11 @@
     }];
     
     
+}
+- (void)refresh:(UIRefreshControl *)refreshControl {
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    [refreshControl endRefreshing];
+    [self.mainTableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
