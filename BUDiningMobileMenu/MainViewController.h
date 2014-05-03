@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "DetailViewController.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface MainViewController : UIViewController <UITabBarDelegate, UITableViewDataSource, UITableViewDelegate>{
+@interface MainViewController : UIViewController <UITabBarDelegate, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate>{
     
     DetailViewController *detailViewController;
     
@@ -37,6 +38,7 @@
     NSInteger foodIndex;
     NSInteger index;
     
+    int stopGPSLoop;
     NSInteger currectSelection;
 
 }

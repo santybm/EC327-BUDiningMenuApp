@@ -40,6 +40,7 @@
 		DC4A5CDB190B647200244845 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4A5CDA190B647200244845 /* MainViewController.m */; };
 		DC4A5CDE190B92D900244845 /* HallImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4A5CDD190B92D900244845 /* HallImageTableViewCell.m */; };
 		DCDF8C981914AFA500A48D03 /* glutenFree.png in Resources */ = {isa = PBXBuildFile; fileRef = DCDF8C971914AFA500A48D03 /* glutenFree.png */; };
+		DCDF8C9A1914B09100A48D03 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDF8C991914B09100A48D03 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		DC4A5CDC190B92D900244845 /* HallImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HallImageTableViewCell.h; sourceTree = "<group>"; };
 		DC4A5CDD190B92D900244845 /* HallImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HallImageTableViewCell.m; sourceTree = "<group>"; };
 		DCDF8C971914AFA500A48D03 /* glutenFree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glutenFree.png; sourceTree = "<group>"; };
+		DCDF8C991914B09100A48D03 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCDF8C9A1914B09100A48D03 /* CoreLocation.framework in Frameworks */,
 				DC0FD46E1909816400D409CC /* CoreGraphics.framework in Frameworks */,
 				DC0FD4701909816400D409CC /* UIKit.framework in Frameworks */,
 				DC0FD46C1909816400D409CC /* Foundation.framework in Frameworks */,
@@ -143,6 +146,7 @@
 		DC0FD46A1909816400D409CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DCDF8C991914B09100A48D03 /* CoreLocation.framework */,
 				DC0FD46B1909816400D409CC /* Foundation.framework */,
 				DC0FD46D1909816400D409CC /* CoreGraphics.framework */,
 				DC0FD46F1909816400D409CC /* UIKit.framework */,

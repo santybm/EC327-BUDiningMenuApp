@@ -18,7 +18,9 @@
 
 @end
 
-@implementation MainViewController
+@implementation MainViewController {
+    CLLocationManager *locationManager;
+}
 @synthesize locationTabBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -31,8 +33,9 @@
 }
 - (void)viewDidLoad
 {
-    [[NSURLCache sharedURLCache] removeAllCachedResponses];
     [super viewDidLoad];
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    
 
     meal = [[NSMutableArray alloc] init];
     names = [[NSMutableArray alloc] init];
@@ -45,10 +48,17 @@
     
     [self setupArrays];
     
-    //[self parseXMLFileAtURL:@"http://sbeltran.com/diningXML.xml"];
-    [self Time];
-    [self makeStations];
-    [self.mainTableView reloadData];
+    //Location Stuff
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    [locationManager startUpdatingLocation];
+    
+
+    //[self Time];
+    //[self makeStations];
+    //[self.mainTableView reloadData];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
@@ -59,8 +69,8 @@
     
     
     //Set the default TabBar item
-    [self.locationTabBar setSelectedItem:self.warrenTab];
-    [self.locationTabBar setSelectedImageTintColor:[UIColor colorWithRed:204.0/255 green:0 blue:0 alpha:1]];
+    //[self.locationTabBar setSelectedItem:self.warrenTab];
+    //[self.locationTabBar setSelectedImageTintColor:[UIColor colorWithRed:204.0/255 green:0 blue:0 alpha:1]];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidEnterBackgroundNotification object: nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note){
        
@@ -71,6 +81,7 @@
         [vegetar removeAllObjects];
         [vegs removeAllObjects];
         [facts removeAllObjects];
+        stopGPSLoop = 0;
     }];
     
     //Ensure app refreshed on DidBecomeActive
@@ -93,9 +104,86 @@
     [self.mainTableView reloadData];
 }
 
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location. Default Dining Hall selected." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
+    
+    [self Time];
+    [self makeStations];
+    [self.mainTableView reloadData];
+    [self.locationTabBar setSelectedItem:self.warrenTab];
+    [self.locationTabBar setSelectedImageTintColor:[UIColor colorWithRed:204.0/255 green:0 blue:0 alpha:1]];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    if (stopGPSLoop == 1)
+    {
+        return;
+    }
+    stopGPSLoop = 1;
+    NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+    
+    
+        //Get the closes Dining Hall
+        CLLocation *bayState = [[CLLocation alloc] initWithLatitude:42.349779 longitude:-71.097733];
+        CLLocation *warren = [[CLLocation alloc] initWithLatitude:42.349462 longitude:-71.103977];
+        CLLocation *west = [[CLLocation alloc] initWithLatitude:42.352748 longitude:-71.120274];
+        
+        //Find Closest Dining Hall
+            CLLocationDistance metersToBay1 = [bayState distanceFromLocation:currentLocation];
+            CLLocationDistance metersToBay2 = [currentLocation distanceFromLocation:bayState];
+        CLLocationDistance metersToBay = metersToBay1 / 2 + metersToBay2 / 2;
+            CLLocationDistance metersToWarren1 = [warren distanceFromLocation:currentLocation];
+            CLLocationDistance metersToWarren2 = [warren distanceFromLocation:currentLocation];
+        CLLocationDistance metersToWarren = metersToWarren1 / 2 + metersToWarren2 / 2;
+            CLLocationDistance metersToWest1 = [west distanceFromLocation:currentLocation];
+            CLLocationDistance metersToWest2 = [west distanceFromLocation:currentLocation];
+        CLLocationDistance metersToWest = metersToWest1 / 2 + metersToWest2 / 2;
+
+        CLLocationDistance minLoc;
+        
+        minLoc = MIN(metersToBay, metersToWarren);
+        minLoc = MIN(minLoc, metersToWest);
+        
+        if (minLoc == metersToBay) {
+            currectSelection = 1;
+            [self callTabChange];
+        }
+        else if (minLoc == metersToWarren){
+            currectSelection = 0;
+            [self callTabChange];
+            
+        }
+        else if (minLoc == metersToWest){
+            currectSelection = 2;
+            [self callTabChange];
+        }
+        else{
+            currectSelection = 0;
+            [self callTabChange];
+            
+        }
+    }
+    
+    [locationManager stopUpdatingLocation];
+    
+    
 }
 
 #pragma mark- TabBar Delegate
@@ -145,10 +233,14 @@
     
     //abcd
     
-    NSLog(@"%d", index);
-    
+    NSLog(@"%ld", (long)currectSelection);
+    [self callTabChange];
+}
+
+-(void)callTabChange {
+
     HallImageTableViewCell *cell0 = [self.mainTableView dequeueReusableCellWithIdentifier:@"TableDiningImage"];
-    if (index == 0)
+    if (currectSelection == 0)
     {
         [self clearArrays];
         [self parseXMLFileAtURL:@"http://sbeltran.com/diningXML.xml"];
@@ -157,10 +249,13 @@
 
         ((HallImageTableViewCell *)cell0).DHallImage.image = [UIImage imageNamed:@"warren_inAction.jpg"];
         ((HallImageTableViewCell *)cell0).diningHallName.text = @"Warren Towers Dining Hall";
+        
+        [self.locationTabBar setSelectedItem:self.warrenTab];
+        [self.locationTabBar setSelectedImageTintColor:[UIColor colorWithRed:204.0/255 green:0 blue:0 alpha:1]];
         [self.mainTableView reloadData];
         return;
     }
-    else if (index == 1)
+    else if (currectSelection== 1)
     {
         [self clearArrays];
         [self parseXMLFileAtURL:@"http://sbeltran.com/diningXML2.xml"];
@@ -169,6 +264,8 @@
 
         ((HallImageTableViewCell *)cell0).DHallImage.image = [UIImage imageNamed:@"baystate_inAction.jpg"];
         ((HallImageTableViewCell *)cell0).diningHallName.text = @"Marciano Commons";
+        [self.locationTabBar setSelectedItem:self.bayStateTab];
+        [self.locationTabBar setSelectedImageTintColor:[UIColor colorWithRed:204.0/255 green:0 blue:0 alpha:1]];
         [self.mainTableView reloadData];
         return;
     }
@@ -177,6 +274,8 @@
         [self clearArrays];
         ((HallImageTableViewCell *)cell0).DHallImage.image = [UIImage imageNamed:@"west_inAction.jpg"];
         ((HallImageTableViewCell *)cell0).diningHallName.text = @"West Campus Dining Hall";
+        [self.locationTabBar setSelectedItem:self.WestTab];
+        [self.locationTabBar setSelectedImageTintColor:[UIColor colorWithRed:204.0/255 green:0 blue:0 alpha:1]];
         [self.mainTableView reloadData];
         return;
     }
