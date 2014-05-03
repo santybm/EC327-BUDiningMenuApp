@@ -275,7 +275,7 @@
         [self parseXMLFileAtURL:@"http://sbeltran.com/diningXML3.xml"];
         //[self Time];
         [self makeStations];
-        [self clearArrays];
+        //[self clearArrays];
         ((HallImageTableViewCell *)cell0).DHallImage.image = [UIImage imageNamed:@"west_inAction.jpg"];
         ((HallImageTableViewCell *)cell0).diningHallName.text = @"West Campus Dining Hall";
         [self.locationTabBar setSelectedItem:self.WestTab];
