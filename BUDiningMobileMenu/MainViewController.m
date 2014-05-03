@@ -51,26 +51,14 @@
     //Location Stuff
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    
+    locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
     [locationManager startUpdatingLocation];
     
-
-    //[self Time];
-    //[self makeStations];
-    //[self.mainTableView reloadData];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     [self.mainTableView addSubview:refreshControl];
     
-
-    //NSLog(@"%@", locationTabBar);
-    
-    
-    //Set the default TabBar item
-    //[self.locationTabBar setSelectedItem:self.warrenTab];
-    //[self.locationTabBar setSelectedImageTintColor:[UIColor colorWithRed:204.0/255 green:0 blue:0 alpha:1]];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidEnterBackgroundNotification object: nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note){
        
@@ -100,6 +88,7 @@
 }
 - (void)refresh:(UIRefreshControl *)refreshControl {
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    [self makeStations];
     [refreshControl endRefreshing];
     [self.mainTableView reloadData];
 }
@@ -115,10 +104,10 @@
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    NSLog(@"didFailWithError: %@", error);
-    UIAlertView *errorAlert = [[UIAlertView alloc]
-                               initWithTitle:@"Error" message:@"Failed to Get Your Location. Default Dining Hall selected." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [errorAlert show];
+    //NSLog(@"didFailWithError: %@", error);
+    //UIAlertView *errorAlert = [[UIAlertView alloc]
+    //                           initWithTitle:@"Error" message:@"Failed to Get Your Location. Default Dining Hall selected." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    //[errorAlert show];
     
     [self Time];
     [self makeStations];
