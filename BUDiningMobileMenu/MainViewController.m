@@ -35,7 +35,6 @@
 {
     [super viewDidLoad];
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
-    
 
     meal = [[NSMutableArray alloc] init];
     names = [[NSMutableArray alloc] init];
@@ -70,16 +69,19 @@
         [vegs removeAllObjects];
         [facts removeAllObjects];
         stopGPSLoop = 0;
+        initialLoad = 999;
     }];
     
     //Ensure app refreshed on DidBecomeActive
     [[NSNotificationCenter defaultCenter] addObserverForName: UIApplicationDidBecomeActiveNotification object: nil queue: [NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
         
-        [self setupArrays];
-        [self Time];
-        [self makeStations];
-        [self.mainTableView reloadData];
-        
+        if (initialLoad == 999)
+        {
+            [self setupArrays];
+            [self Time];
+            [self makeStations];
+            [self.mainTableView reloadData];
+        }
         //NSLog(@"%@", @"Did become active");
         
     }];
@@ -168,6 +170,7 @@
             [self callTabChange];
             
         }
+        [locationManager stopUpdatingLocation];
     }
     
     [locationManager stopUpdatingLocation];
@@ -212,7 +215,7 @@
 
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
-    tabBar.selectedImageTintColor = [UIColor colorWithRed:204.0/255 green:0 blue:0 alpha:1];
+    //tabBar.selectedImageTintColor = [UIColor colorWithRed:204.0/255 green:0 blue:0 alpha:1];
 
     
     index = [tabBar.items indexOfObject:item];
@@ -222,7 +225,7 @@
     
     //abcd
     
-    NSLog(@"%ld", (long)currectSelection);
+    //NSLog(@"%ld", (long)currectSelection);
     [self callTabChange];
 }
 

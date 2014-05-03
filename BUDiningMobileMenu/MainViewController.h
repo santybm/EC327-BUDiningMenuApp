@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DetailViewController.h"
+//#import "DetailViewController.h"
 #import <CoreLocation/CoreLocation.h>
 
 @interface MainViewController : UIViewController <UITabBarDelegate, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate>{
     
-    DetailViewController *detailViewController;
+    //DetailViewController *detailViewController;
     
     NSXMLParser *rssParser;
     NSMutableArray *articles;
@@ -39,6 +39,7 @@
     NSInteger index;
     
     int stopGPSLoop;
+    int initialLoad;
     NSInteger currectSelection;
 
 }
@@ -46,7 +47,7 @@
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *mealSelector;
 
-@property (nonatomic, retain) IBOutlet DetailViewController *detailViewController;
+//@property (nonatomic, retain) IBOutlet DetailViewController *detailViewController;
 
 - (void)parseXMLFileAtURL:(NSString *)URL;
 

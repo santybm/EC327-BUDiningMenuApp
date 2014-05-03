@@ -230,9 +230,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DC0FD4671909816400D409CC /* Dining Menu */ = {
+		DC0FD4671909816400D409CC /* BU Dining Menu */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DC0FD49A1909816400D409CC /* Build configuration list for PBXNativeTarget "Dining Menu" */;
+			buildConfigurationList = DC0FD49A1909816400D409CC /* Build configuration list for PBXNativeTarget "BU Dining Menu" */;
 			buildPhases = (
 				DC0FD4641909816400D409CC /* Sources */,
 				DC0FD4651909816400D409CC /* Frameworks */,
@@ -242,7 +242,7 @@
 			);
 			dependencies = (
 			);
-			name = "Dining Menu";
+			name = "BU Dining Menu";
 			productName = BUDiningMobileMenu;
 			productReference = DC0FD4681909816400D409CC /* Dining Menu.app */;
 			productType = "com.apple.product-type.application";
@@ -292,7 +292,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DC0FD4671909816400D409CC /* Dining Menu */,
+				DC0FD4671909816400D409CC /* BU Dining Menu */,
 				DC0FD4881909816400D409CC /* BUDiningMobileMenuTests */,
 			);
 		};
@@ -366,7 +366,7 @@
 /* Begin PBXTargetDependency section */
 		DC0FD48F1909816400D409CC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DC0FD4671909816400D409CC /* Dining Menu */;
+			target = DC0FD4671909816400D409CC /* BU Dining Menu */;
 			targetProxy = DC0FD48E1909816400D409CC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -541,7 +541,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC0FD49A1909816400D409CC /* Build configuration list for PBXNativeTarget "Dining Menu" */ = {
+		DC0FD49A1909816400D409CC /* Build configuration list for PBXNativeTarget "BU Dining Menu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC0FD49B1909816400D409CC /* Debug */,
