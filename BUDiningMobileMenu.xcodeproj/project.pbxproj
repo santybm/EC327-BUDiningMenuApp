@@ -39,6 +39,7 @@
 		DC4A5CD8190B60DC00244845 /* vegitarian.png in Resources */ = {isa = PBXBuildFile; fileRef = DC4A5CD7190B60DC00244845 /* vegitarian.png */; };
 		DC4A5CDB190B647200244845 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4A5CDA190B647200244845 /* MainViewController.m */; };
 		DC4A5CDE190B92D900244845 /* HallImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4A5CDD190B92D900244845 /* HallImageTableViewCell.m */; };
+		DCDF8C981914AFA500A48D03 /* glutenFree.png in Resources */ = {isa = PBXBuildFile; fileRef = DCDF8C971914AFA500A48D03 /* glutenFree.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		DC4A5CDA190B647200244845 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		DC4A5CDC190B92D900244845 /* HallImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HallImageTableViewCell.h; sourceTree = "<group>"; };
 		DC4A5CDD190B92D900244845 /* HallImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HallImageTableViewCell.m; sourceTree = "<group>"; };
+		DCDF8C971914AFA500A48D03 /* glutenFree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glutenFree.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 		DC0FD4721909816400D409CC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DCDF8C971914AFA500A48D03 /* glutenFree.png */,
 				DC4A5CD3190B601F00244845 /* vegan.png */,
 				DC4A5CD5190B606500244845 /* sargent.png */,
 				DC4A5CD7190B60DC00244845 /* vegitarian.png */,
@@ -284,6 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCDF8C981914AFA500A48D03 /* glutenFree.png in Resources */,
 				DC4A5CD6190B606500244845 /* sargent.png in Resources */,
 				DC4A5CC6190B536B00244845 /* warren.png in Resources */,
 				DC4A5CD2190B5D0100244845 /* baystate_inAction.jpg in Resources */,
