@@ -41,6 +41,7 @@
 		DC4A5CDE190B92D900244845 /* HallImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4A5CDD190B92D900244845 /* HallImageTableViewCell.m */; };
 		DCDF8C981914AFA500A48D03 /* glutenFree.png in Resources */ = {isa = PBXBuildFile; fileRef = DCDF8C971914AFA500A48D03 /* glutenFree.png */; };
 		DCDF8C9A1914B09100A48D03 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDF8C991914B09100A48D03 /* CoreLocation.framework */; };
+		DCDF8C9C1914C60900A48D03 /* BUDiningParser-4.py in Resources */ = {isa = PBXBuildFile; fileRef = DCDF8C9B1914C60900A48D03 /* BUDiningParser-4.py */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		DC4A5CDD190B92D900244845 /* HallImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HallImageTableViewCell.m; sourceTree = "<group>"; };
 		DCDF8C971914AFA500A48D03 /* glutenFree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glutenFree.png; sourceTree = "<group>"; };
 		DCDF8C991914B09100A48D03 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		DCDF8C9B1914C60900A48D03 /* BUDiningParser-4.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = "BUDiningParser-4.py"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 		DC0FD4721909816400D409CC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DCDF8C9B1914C60900A48D03 /* BUDiningParser-4.py */,
 				DCDF8C971914AFA500A48D03 /* glutenFree.png */,
 				DC4A5CD3190B601F00244845 /* vegan.png */,
 				DC4A5CD5190B606500244845 /* sargent.png */,
@@ -292,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCDF8C981914AFA500A48D03 /* glutenFree.png in Resources */,
+				DCDF8C9C1914C60900A48D03 /* BUDiningParser-4.py in Resources */,
 				DC4A5CD6190B606500244845 /* sargent.png in Resources */,
 				DC4A5CC6190B536B00244845 /* warren.png in Resources */,
 				DC4A5CD2190B5D0100244845 /* baystate_inAction.jpg in Resources */,
