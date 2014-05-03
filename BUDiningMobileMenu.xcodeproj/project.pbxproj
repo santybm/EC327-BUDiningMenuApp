@@ -39,6 +39,9 @@
 		DC4A5CD8190B60DC00244845 /* vegitarian.png in Resources */ = {isa = PBXBuildFile; fileRef = DC4A5CD7190B60DC00244845 /* vegitarian.png */; };
 		DC4A5CDB190B647200244845 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4A5CDA190B647200244845 /* MainViewController.m */; };
 		DC4A5CDE190B92D900244845 /* HallImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4A5CDD190B92D900244845 /* HallImageTableViewCell.m */; };
+		DCACAFF1191595D900DF87E9 /* nutritionBG.png in Resources */ = {isa = PBXBuildFile; fileRef = DCACAFF0191595D900DF87E9 /* nutritionBG.png */; };
+		DCACAFF919159A0900DF87E9 /* splashScreen4.png in Resources */ = {isa = PBXBuildFile; fileRef = DCACAFF819159A0900DF87E9 /* splashScreen4.png */; };
+		DCACAFFB19159A9900DF87E9 /* sp5.png in Resources */ = {isa = PBXBuildFile; fileRef = DCACAFFA19159A9900DF87E9 /* sp5.png */; };
 		DCDF8C981914AFA500A48D03 /* glutenFree.png in Resources */ = {isa = PBXBuildFile; fileRef = DCDF8C971914AFA500A48D03 /* glutenFree.png */; };
 		DCDF8C9A1914B09100A48D03 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDF8C991914B09100A48D03 /* CoreLocation.framework */; };
 		DCDF8C9C1914C60900A48D03 /* BUDiningParser-4.py in Resources */ = {isa = PBXBuildFile; fileRef = DCDF8C9B1914C60900A48D03 /* BUDiningParser-4.py */; };
@@ -97,6 +100,9 @@
 		DC4A5CDA190B647200244845 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		DC4A5CDC190B92D900244845 /* HallImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HallImageTableViewCell.h; sourceTree = "<group>"; };
 		DC4A5CDD190B92D900244845 /* HallImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HallImageTableViewCell.m; sourceTree = "<group>"; };
+		DCACAFF0191595D900DF87E9 /* nutritionBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nutritionBG.png; sourceTree = "<group>"; };
+		DCACAFF819159A0900DF87E9 /* splashScreen4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splashScreen4.png; sourceTree = "<group>"; };
+		DCACAFFA19159A9900DF87E9 /* sp5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sp5.png; sourceTree = "<group>"; };
 		DCDF8C971914AFA500A48D03 /* glutenFree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glutenFree.png; sourceTree = "<group>"; };
 		DCDF8C991914B09100A48D03 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		DCDF8C9B1914C60900A48D03 /* BUDiningParser-4.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = "BUDiningParser-4.py"; sourceTree = "<group>"; };
@@ -187,6 +193,9 @@
 		DC0FD4721909816400D409CC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DCACAFFA19159A9900DF87E9 /* sp5.png */,
+				DCACAFF819159A0900DF87E9 /* splashScreen4.png */,
+				DCACAFF0191595D900DF87E9 /* nutritionBG.png */,
 				DCDF8C9B1914C60900A48D03 /* BUDiningParser-4.py */,
 				DCDF8C971914AFA500A48D03 /* glutenFree.png */,
 				DC4A5CD3190B601F00244845 /* vegan.png */,
@@ -297,13 +306,16 @@
 				DCDF8C981914AFA500A48D03 /* glutenFree.png in Resources */,
 				DCDF8C9C1914C60900A48D03 /* BUDiningParser-4.py in Resources */,
 				DC4A5CD6190B606500244845 /* sargent.png in Resources */,
+				DCACAFF1191595D900DF87E9 /* nutritionBG.png in Resources */,
 				DC4A5CC6190B536B00244845 /* warren.png in Resources */,
 				DC4A5CD2190B5D0100244845 /* baystate_inAction.jpg in Resources */,
 				DC0FD4841909816400D409CC /* Images.xcassets in Resources */,
+				DCACAFF919159A0900DF87E9 /* splashScreen4.png in Resources */,
 				DC4A5CCC190B5AE800244845 /* west.png in Resources */,
 				DC05AE61190B2D13000F4778 /* westcampus.jpg in Resources */,
 				DC05AE5F190B2D13000F4778 /* z03sz-373x500.jpg in Resources */,
 				DC4A5CC8190B55CD00244845 /* bayState.png in Resources */,
+				DCACAFFB19159A9900DF87E9 /* sp5.png in Resources */,
 				DC351605190E4140001685BC /* BUDiningParser.py in Resources */,
 				DC0FD4761909816400D409CC /* InfoPlist.strings in Resources */,
 				DC05AE60190B2D13000F4778 /* Warren_Towers-598x398.jpg in Resources */,
