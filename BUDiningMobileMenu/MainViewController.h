@@ -24,7 +24,7 @@
     NSMutableArray *sar;
     NSMutableArray *vegetar;
     NSMutableArray *vegs;
-    NSMutableArray *gluton;
+    NSMutableArray *gluten;
     NSMutableArray *facts;
 
     

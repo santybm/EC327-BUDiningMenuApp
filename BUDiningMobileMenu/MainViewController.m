@@ -44,7 +44,7 @@
     vegetar = [[NSMutableArray alloc] init];
     vegs = [[NSMutableArray alloc] init];
     facts = [[NSMutableArray alloc] init];
-    gluton = [[NSMutableArray alloc] init];
+    gluten = [[NSMutableArray alloc] init];
     
     [self setupArrays];
     
@@ -196,7 +196,7 @@
      [sar removeAllObjects];
      [vegetar removeAllObjects];
      [vegs removeAllObjects];
-     [gluton removeAllObjects];
+     [gluten removeAllObjects];
      [facts removeAllObjects];
      [self setupArrays];
 }
@@ -271,6 +271,10 @@
     }
     else
     {
+        [self clearArrays];
+        [self parseXMLFileAtURL:@"http://sbeltran.com/diningXML3.xml"];
+        //[self Time];
+        [self makeStations];
         [self clearArrays];
         ((HallImageTableViewCell *)cell0).DHallImage.image = [UIImage imageNamed:@"west_inAction.jpg"];
         ((HallImageTableViewCell *)cell0).diningHallName.text = @"West Campus Dining Hall";
@@ -365,9 +369,9 @@
         [vegetar addObject: ElementValue];
         
     }
-    if ([elementName isEqualToString:@"isVegetarian"]) {
+    if ([elementName isEqualToString:@"isGluten"]) {
         item = [[NSMutableDictionary alloc] init];
-        [gluton addObject: ElementValue];
+        [gluten addObject: ElementValue];
     }
     if ([elementName isEqualToString:@"factsURL"]) {
         item = [[NSMutableDictionary alloc] init];
@@ -402,7 +406,7 @@
           NSLog(@"%@", [sar objectAtIndex:i] );
           NSLog(@"%@", [vegetar objectAtIndex:i] );
           NSLog(@"%@", [vegs objectAtIndex:i] );
-          NSLog(@"%@", [gluton objectAtIndex:i] );
+          NSLog(@"%@", [gluten objectAtIndex:i] );
           NSLog(@"%@", [facts objectAtIndex:i] );
      
         
@@ -551,7 +555,7 @@
    
     
     //Sargent
-    NSString* s= vegetar[indexPath.item] ;
+    NSString* s= sar[indexPath.item] ;
     NSData* sd = [s dataUsingEncoding:NSUTF8StringEncoding];
     NSString *outputsar = [[NSString alloc]  initWithData:sd encoding: NSASCIIStringEncoding];
     outputsar = [outputsar stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -562,14 +566,14 @@
     
     }
     
-    //Gluton
-    NSString* g= vegetar[indexPath.item] ;
+    //gluten
+    NSString* g= gluten[indexPath.item] ;
     NSData* gd = [g dataUsingEncoding:NSUTF8StringEncoding];
-    NSString *outputgluton = [[NSString alloc]  initWithData:gd encoding: NSASCIIStringEncoding];
-    outputgluton = [outputgluton stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    if ([outputgluton isEqualToString: @"TRUE"])
+    NSString *outputgluten = [[NSString alloc]  initWithData:gd encoding: NSASCIIStringEncoding];
+    outputgluten = [outputgluten stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if ([outputgluten isEqualToString: @"TRUE"])
     {
-        cell.image3.image = [UIImage imageNamed:@"gluton.png"];
+        cell.image3.image = [UIImage imageNamed:@"glutenFree.png"];
         //((itemNameCellTableViewCell *)cell).image2.image = [UIImage imageNamed:@"sargent.png"];
         
     }
@@ -604,7 +608,7 @@
     sar [0] = @"error";;
     vegetar [0] = @"error";
     vegs [0] = @"error";
-    gluton [0] = @"error";
+    gluten [0] = @"error";
     facts [0] = @"error";
 }
 
@@ -621,7 +625,7 @@
             [self.mainTableView reloadData];
             break;
         default:
-            [self parseXMLFileAtURL:@"http://sbeltran.com/diningXML2.xml"];
+            [self parseXMLFileAtURL:@"http://sbeltran.com/diningXML3.xml"];
             [self.mainTableView reloadData];
             break;
     }
@@ -646,7 +650,7 @@
             [meal removeObjectAtIndex:(i)];
             [vegetar removeObjectAtIndex:(i)];
             [vegs removeObjectAtIndex:(i)];
-            [gluton removeObjectAtIndex:(i)];
+            [gluten removeObjectAtIndex:(i)];
             [sar removeObjectAtIndex:(i)];
             [facts removeObjectAtIndex:(i)];
             i=0;
@@ -663,7 +667,7 @@
             [meal removeObjectAtIndex:(i)];
             [vegetar removeObjectAtIndex:(i)];
             [vegs removeObjectAtIndex:(i)];
-            [gluton removeObjectAtIndex:(i)];
+            [gluten removeObjectAtIndex:(i)];
             [sar removeObjectAtIndex:(i)];
             [facts removeObjectAtIndex:(i)];
             i=0;
@@ -680,7 +684,7 @@
             [meal removeObjectAtIndex:(i)];
             [vegetar removeObjectAtIndex:(i)];
             [vegs removeObjectAtIndex:(i)];
-            [gluton removeObjectAtIndex:(i)];
+            [gluten removeObjectAtIndex:(i)];
             [sar removeObjectAtIndex:(i)];
             [facts removeObjectAtIndex:(i)];
             i=0;
@@ -714,7 +718,7 @@
         [sar insertObject:@"error" atIndex:(i)];
         [vegetar insertObject:@"error" atIndex:(i)];
         [vegs insertObject:@"error" atIndex:(i)];
-        [gluton insertObject:@"error" atIndex:(i)];
+        [gluten insertObject:@"error" atIndex:(i)];
         [facts insertObject:@"error" atIndex:(i)];
     }
     
