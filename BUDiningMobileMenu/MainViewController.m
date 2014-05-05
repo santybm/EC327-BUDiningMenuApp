@@ -705,6 +705,36 @@
         [self.mainTableView reloadData];
         
     }
+    
+    if(topMealselector==1 && names.count<2)
+    {
+        
+        [category insertObject:@"Notice:" atIndex:(1)];
+        [names insertObject:@"No Lunch Today" atIndex:(1)];
+        [meal insertObject:@"error" atIndex:(1)];
+        [vegetar insertObject:@"error" atIndex:(1)];
+        [vegs insertObject:@"error" atIndex:(1)];
+        [gluten insertObject:@"error" atIndex:(1)];
+        [sar insertObject:@"error" atIndex:(1)];
+        [facts insertObject:@"error" atIndex:(1)];
+        [self.mainTableView reloadData];
+        
+    }
+    
+    if(topMealselector==2 && names.count<2)
+    {
+        
+        [category insertObject:@"Notice:" atIndex:(1)];
+        [names insertObject:@"No Dinner Today" atIndex:(1)];
+        [meal insertObject:@"error" atIndex:(1)];
+        [vegetar insertObject:@"error" atIndex:(1)];
+        [vegs insertObject:@"error" atIndex:(1)];
+        [gluten insertObject:@"error" atIndex:(1)];
+        [sar insertObject:@"error" atIndex:(1)];
+        [facts insertObject:@"error" atIndex:(1)];
+        [self.mainTableView reloadData];
+        
+    }
 
     
     
