@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DC0FD4671909816400D409CC"
-               BuildableName = "Dining Menu.app"
+               BuildableName = "BU Dining Menu.app"
                BlueprintName = "BU Dining Menu"
                ReferencedContainer = "container:BUDiningMobileMenu.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC0FD4671909816400D409CC"
-            BuildableName = "Dining Menu.app"
+            BuildableName = "BU Dining Menu.app"
             BlueprintName = "BU Dining Menu"
             ReferencedContainer = "container:BUDiningMobileMenu.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC0FD4671909816400D409CC"
-            BuildableName = "Dining Menu.app"
+            BuildableName = "BU Dining Menu.app"
             BlueprintName = "BU Dining Menu"
             ReferencedContainer = "container:BUDiningMobileMenu.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC0FD4671909816400D409CC"
-            BuildableName = "Dining Menu.app"
+            BuildableName = "BU Dining Menu.app"
             BlueprintName = "BU Dining Menu"
             ReferencedContainer = "container:BUDiningMobileMenu.xcodeproj">
          </BuildableReference>
