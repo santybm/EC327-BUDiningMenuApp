@@ -19,9 +19,6 @@
 		DC0FD47F1909816400D409CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC0FD47D1909816400D409CC /* Main.storyboard */; };
 		DC0FD4821909816400D409CC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0FD4811909816400D409CC /* ViewController.m */; };
 		DC0FD4841909816400D409CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC0FD4831909816400D409CC /* Images.xcassets */; };
-		DC0FD48B1909816400D409CC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0FD48A1909816400D409CC /* XCTest.framework */; };
-		DC0FD48C1909816400D409CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0FD46B1909816400D409CC /* Foundation.framework */; };
-		DC0FD48D1909816400D409CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0FD46F1909816400D409CC /* UIKit.framework */; };
 		DC1D7138190B773000045E66 /* itemNameCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1D7137190B773000045E66 /* itemNameCellTableViewCell.m */; };
 		DC1D713B190B7B0E00045E66 /* categoryTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1D713A190B7B0E00045E66 /* categoryTitleTableViewCell.m */; };
 		DC1D713E190B88E700045E66 /* NutritionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1D713D190B88E700045E66 /* NutritionViewController.m */; };
@@ -48,16 +45,6 @@
 		DCDF8C9C1914C60900A48D03 /* BUDiningParser-4.py in Resources */ = {isa = PBXBuildFile; fileRef = DCDF8C9B1914C60900A48D03 /* BUDiningParser-4.py */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		DC0FD48E1909816400D409CC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DC0FD4601909816400D409CC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DC0FD4671909816400D409CC;
-			remoteInfo = BUDiningMobileMenu;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		DC05AE5C190B2D13000F4778 /* z03sz-373x500.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "z03sz-373x500.jpg"; sourceTree = "<group>"; };
 		DC05AE5D190B2D13000F4778 /* Warren_Towers-598x398.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Warren_Towers-598x398.jpg"; sourceTree = "<group>"; };
@@ -76,7 +63,6 @@
 		DC0FD4801909816400D409CC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		DC0FD4811909816400D409CC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		DC0FD4831909816400D409CC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		DC0FD4891909816400D409CC /* BUDiningMobileMenuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BUDiningMobileMenuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC0FD48A1909816400D409CC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		DC1D7136190B773000045E66 /* itemNameCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = itemNameCellTableViewCell.h; sourceTree = "<group>"; };
 		DC1D7137190B773000045E66 /* itemNameCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = itemNameCellTableViewCell.m; sourceTree = "<group>"; };
@@ -121,16 +107,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DC0FD4861909816400D409CC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DC0FD48B1909816400D409CC /* XCTest.framework in Frameworks */,
-				DC0FD48D1909816400D409CC /* UIKit.framework in Frameworks */,
-				DC0FD48C1909816400D409CC /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -147,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				DC0FD4681909816400D409CC /* BU Dining Menu.app */,
-				DC0FD4891909816400D409CC /* BUDiningMobileMenuTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -248,24 +223,6 @@
 			productReference = DC0FD4681909816400D409CC /* BU Dining Menu.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DC0FD4881909816400D409CC /* BUDiningMobileMenuTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DC0FD49D1909816400D409CC /* Build configuration list for PBXNativeTarget "BUDiningMobileMenuTests" */;
-			buildPhases = (
-				DC0FD4851909816400D409CC /* Sources */,
-				DC0FD4861909816400D409CC /* Frameworks */,
-				DC0FD4871909816400D409CC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DC0FD48F1909816400D409CC /* PBXTargetDependency */,
-			);
-			name = BUDiningMobileMenuTests;
-			productName = BUDiningMobileMenuTests;
-			productReference = DC0FD4891909816400D409CC /* BUDiningMobileMenuTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -274,11 +231,6 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = DevXApp;
-				TargetAttributes = {
-					DC0FD4881909816400D409CC = {
-						TestTargetID = DC0FD4671909816400D409CC;
-					};
-				};
 			};
 			buildConfigurationList = DC0FD4631909816400D409CC /* Build configuration list for PBXProject "BUDiningMobileMenu" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -294,7 +246,6 @@
 			projectRoot = "";
 			targets = (
 				DC0FD4671909816400D409CC /* BU Dining Menu */,
-				DC0FD4881909816400D409CC /* BUDiningMobileMenuTests */,
 			);
 		};
 /* End PBXProject section */
@@ -331,13 +282,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DC0FD4871909816400D409CC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -356,22 +300,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DC0FD4851909816400D409CC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		DC0FD48F1909816400D409CC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DC0FD4671909816400D409CC /* BU Dining Menu */;
-			targetProxy = DC0FD48E1909816400D409CC /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DC0FD4741909816400D409CC /* InfoPlist.strings */ = {
@@ -491,46 +420,6 @@
 			};
 			name = Release;
 		};
-		DC0FD49E1909816400D409CC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BUDiningMobileMenu.app/BUDiningMobileMenu";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BUDiningMobileMenu/BUDiningMobileMenu-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "BUDiningMobileMenuTests/BUDiningMobileMenuTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		DC0FD49F1909816400D409CC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BUDiningMobileMenu.app/BUDiningMobileMenu";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BUDiningMobileMenu/BUDiningMobileMenu-Prefix.pch";
-				INFOPLIST_FILE = "BUDiningMobileMenuTests/BUDiningMobileMenuTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -548,15 +437,6 @@
 			buildConfigurations = (
 				DC0FD49B1909816400D409CC /* Debug */,
 				DC0FD49C1909816400D409CC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DC0FD49D1909816400D409CC /* Build configuration list for PBXNativeTarget "BUDiningMobileMenuTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DC0FD49E1909816400D409CC /* Debug */,
-				DC0FD49F1909816400D409CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
