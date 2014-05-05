@@ -11,13 +11,17 @@ from html.parser import HTMLParser
 import urllib.request
 from lxml import html
 from lxml import etree
-import requests
+import ftplib
+#import requests
+import os,sys
 
 # <codecell>
 
 #Get menu section only. -- Get the Raw HTML from the site
 def getSectioninHTML():    
     f = urllib.request.urlopen('http://www.bu.edu/dining/where-to-eat/residence-dining/warren-towers/menu/')
+    #f = urllib.request.urlopen('http://www.bu.edu/dining/where-to-eat/residence-dining/marciano-commons/menu/')
+    #f = urllib.request.urlopen('http://www.bu.edu/dining/where-to-eat/residence-dining/the-fresh-food-co-at-west-campus/menu/')
     rawHTML = (f.read().decode('utf-8'))
     #get the specials section from website
     
@@ -41,7 +45,10 @@ def getMealSectioninHTML(section):
     if(section == 'B'):
         startPoint = (rawHTML.find('<a name="breakfast"></a>'))
         endPoint = (rawHTML.find('<a name="lunch"></a>'))
-        return rawHTML[startPoint:endPoint]
+        if(startPoint != -1):
+            return rawHTML[startPoint:endPoint]
+        else:
+            return 0
     #get lunch
     elif(section == 'L'):
         startPoint = (rawHTML.find('<a name="lunch"></a>'))
@@ -89,12 +96,12 @@ Gluten = tree.xpath('//span[@class="glutenfree-icon menuitem-icon"]')
 
 
     
-print (categories)
-print (items)
-print (Sargent)
-print (Vegan)
-print (Vegetarian)
-print (Gluten)
+#print (categories)
+#print (items)
+#print (Sargent)
+#print (Vegan)
+#print (Vegetarian)
+#print (Gluten)
 
 #THIS CODE IS NOT USED IN THE ACTUAL PARSING ENGINE, BUT WAS THE INITIAL RUN. DON'T DELETE. I THINK I CAN MAKE THIS CODE WORK TOO.
 
@@ -106,10 +113,12 @@ print (Gluten)
 #Function Call Example (without angle brackets): getHTMLbyCategory(<Category Shorthand Identifier: 3 CHAR>,<Meal Identifier: 1 CHAR>)
 def getHTMLbyCategory(catgID, mealID):
     #Get raw HTML that belongs to the mealID Section from input parameter 'mealID'. This calls another function 'getMealSectioninHTML', that gets HTML code from only Breakfast, Lunch, or Dinner.
+    HTMLcode = getMealSectioninHTML(mealID)
+    if (HTMLcode == 0):
+        return None
     tree = html.fromstring(getMealSectioninHTML(mealID))
     
     #The tree is a node of elaments with a structure... basically view-source of a website, that tree... well that is what this one is too.
-    
     #Switch/Case Statement Python Style
     #Get raw HTML furthur filtered based on Food Category Type from the input parameter 'catgID'
     if (catgID == 'BRI'):
@@ -166,6 +175,30 @@ def getHTMLbyCategory(catgID, mealID):
     elif (catgID == 'BAK'):
         for elem in tree.xpath('//div[@class="station bakery-station"]'):
             return (etree.tostring(elem, pretty_print=True))
+    #NEW - BayState
+    elif (catgID == 'VGK'):
+        for elem in tree.xpath('//div[@class="station vegankitchen-station"]'):
+            return (etree.tostring(elem, pretty_print=True))
+    #NEW - BayState
+    elif (catgID == 'GFK'):
+        for elem in tree.xpath('//div[@class="station glutenfreekitchen-station"]'):
+            return (etree.tostring(elem, pretty_print=True))
+    #NEW - BayState
+    elif (catgID == 'MED'): 
+        for elem in tree.xpath('//div[@class="station mediterranean-station"]'):
+            return (etree.tostring(elem, pretty_print=True))
+    #NEW - BayState
+    elif (catgID == 'CTP'):
+        for elem in tree.xpath('//div[@class="station centeroftheplate-station"]'):
+            return (etree.tostring(elem, pretty_print=True))
+    #NEW - WEST
+    elif (catgID == 'BOS'): 
+        for elem in tree.xpath('//div[@class="station brickovensaute-station"]'):
+            return (etree.tostring(elem, pretty_print=True))
+    #NEW - WEST
+    elif (catgID == 'GFS'): 
+        for elem in tree.xpath('//div[@class="station glutenfree-station"]'):
+            return (etree.tostring(elem, pretty_print=True))
     #Add missing category identifiers here from other dining halls. ALL MUST BE UNIQUE. If it already exists above, it can not be added below.
     #Follow elif template for new categories and first example above.
     #### ADDITIONAL CATEGORIES HERE #####
@@ -221,7 +254,7 @@ def getItemsWithPropertiesFromCATG(catgID, mealID):
     
     #Error Validation. If the menu does not have a section, then it return "N/A" for that section. This might change to a number for easire use later.
     if (extractCode == None):
-        return "N/A";
+        return '';
     
     #Dictionary of items, KEY: item name, DEFINITION: Properties
     itemDict = {}
@@ -272,10 +305,13 @@ def getItemsWithPropertiesFromCATG(catgID, mealID):
         itemName = itemNameElement[0].text_content()
         #Go back two elements [Parent 2] again to get the image ID
         parent2Values = parent2.values()
-        #Go back down to the you are here point and get special types (Sargent, Vegan, etc.) & Save to list with append
+        #Go back down to the you are here point and get special types (Sargent, Vegan, etc.)
         propertyList.append(element.text_content())
         #Get the ID (for image) & Save to list. Again only one image so we get the first element in the list.
-        propertyList.append(parent2Values[0])
+        imageID = parent2Values[0]
+        startPointIID = (imageID.find('-'))
+        imageID = "http://www.bu.edu/nisprod/dining/data/menus/labels/" + imageID[(startPointIID+1):] + ".gif"
+        propertyList.append(imageID)
         #Create a dictionary item with the key of the itemName and the definition of the property list.
         itemDict[itemName] = propertyList
         #get out of the current item. Not needed, but a just in case statement.
@@ -299,23 +335,155 @@ def getItemsWithPropertiesFromCATG(catgID, mealID):
     
 
     #Return a dictionary of every item on the menu for that particular meal and category. :)
-    return itemDict
+    return itemDict.items()
     
 
 # <codecell>
 
+def getMealName(mealID):
+        if(mealID == 'B'):
+            return 'Breakfast'
+        elif(mealID == 'L'):
+            return 'Lunch'
+        elif(mealID == 'D'):
+            return 'Dinner'
+        else:
+            return 'Not Avialable'
+
+# <codecell>
+
+def getCategoryName(catgID):
+    if (catgID == 'BRI'):
+        return 'Brick Oven'
+    elif (catgID == 'DEL'):
+        return 'Deli'
+    elif (catgID == 'EXH'):
+        return 'Exhibition Saute'
+    elif (catgID == 'HOM'):
+        return 'Home Zone'
+    elif (catgID == 'IMP'):
+        return 'Impinger'
+    elif (catgID == 'INT'):
+        return 'International'
+    elif (catgID == 'MON'):
+        return 'Mongolian Grill'
+    elif (catgID == 'ROT'):
+        return 'Rotisserie'
+    elif (catgID == 'SAL'):
+        return 'Salad Bar'
+    elif (catgID == 'SNA'):    
+        return 'Snacks'
+    elif (catgID == 'SOU'):
+        return 'Soup'
+    elif (catgID == 'GRI'):
+        return 'Grill'
+    elif (catgID == 'VEG'):
+        return 'Vegan Delights'
+    elif (catgID == 'WAF'): 
+        return 'Waffles'
+    elif (catgID == 'BAK'):
+        return 'Bakery'
+    elif (catgID == 'VGK'):
+        return 'Vegan Kitchen'
+    elif (catgID == 'CTP'):
+        return 'Bakery'
+    elif (catgID == 'GFK'):
+        return 'Gluten Free Kitchen'
+    elif (catgID == 'MED'):
+        return 'Mediterranean'
+    elif (catgID == 'BOS'):
+        return 'Brick Oven Saute'
+    elif (catgID == 'GFS'):
+        return 'Gluten Free'
+
+# <codecell>
+
 #Test Code to read the dictionary at every category for lunch. Includes some styling for readability.
+import collections
+
 
 def testItemDictionaryWithPrinting():
-    categories = ['BRI', 'DEL', 'EXH', 'HOM', 'IMP', 'INT', 'MON', 'ROT', 'SAL', 'SNA', 'SOU', 'GRI', 'VEG', 'WAF']
+    #List of all options
+    categories = ['SOU', 'BRI', 'GRI', 'IMP', 'EXH', 'HOM', 'MON', 'INT', 'DEL', 'ROT', 'SAL', 'SNA', 'VEG', 'WAF', 'VGK', 'CTP', 'GFK', 'MED', 'BOS', 'GFS','BAK']
+    allMeals = ['B','L','D']
+    
+    #creates the head element 'meal'
+    mealElement = etree.Element('menu')
+    
+    
+    for mealID in allMeals:
+        for CATtype in categories:
+            #Receive a dictionary of all the items in that category. Get each items in every category
+            #print (getItemsWithPropertiesFromCATG(CATtype, 'L'))
+            for dicKeys, dicValues in getItemsWithPropertiesFromCATG(CATtype, mealID):
+                #Format the dictionary into xml
+                #Needs to look like this:
+                #<item>
+                #  <meal />
+                #  <category />
+                #  <factsURL />
+                #  <isVegetarian />
+                #  <isSargent />
+                #  <isVegan />
+                #  <isGluten />
+                #</item>
+                #search for special properties
+                itemSpecialProps = dicValues[0]
+                isVegarBool = 'FALSE'
+                isSargeBool = 'FALSE'
+                isVeganBool = 'FALSE'
+                isGluteBool = 'FALSE'
+                #check if Vegerarian
+                if ( itemSpecialProps.find('Vegetarian') != -1):
+                    isVegarBool = 'TRUE'
+                if ( itemSpecialProps.find('Sargent') != -1):
+                    isSargeBool = 'TRUE'
+                if ( itemSpecialProps.find('Vegan') != -1):
+                    isVeganBool = 'TRUE'
+                if ( itemSpecialProps.find('Gluten') != -1):
+                    isGluteBool = 'TRUE'
+                
+                
+                #create the main element ('item') and each subelement.
+                itemElement = etree.SubElement(mealElement, 'item')
+                #create subelements w/ text
+                mealElem = etree.SubElement(itemElement, 'meal')
+                mealElem.text = getMealName(mealID)
+                categElem = etree.SubElement(itemElement, 'category')
+                categElem.text = getCategoryName(CATtype)
+                itemName = etree.SubElement(itemElement, 'name')
+                itemName.text = dicKeys
+                factsElem = etree.SubElement(itemElement, 'factsURL')
+                factsElem.text = dicValues[1]
+                isVegetarElem = etree.SubElement(itemElement, 'isVegetarian')
+                isVegetarElem.text = isVegarBool
+                isSargetElem = etree.SubElement(itemElement, 'isSargent')
+                isSargetElem.text = isSargeBool
+                isVeganElem = etree.SubElement(itemElement, 'isVegan')
+                isVeganElem.text = isVeganBool
+                isGlutenElem = etree.SubElement(itemElement, 'isGluten')
+                isGlutenElem.text = isGluteBool
+                #print (keys)
+                
+    strXML = ''
+    strXML = etree.tostring(mealElement)
+    
+    decodeXML = str(strXML, encoding='UTF-8')
 
-    for CATtype in categories:
-        print (getItemsWithPropertiesFromCATG(CATtype, 'L'))
-        print ("-------------------------------------------------")
+    outFile = open('diningXML.xml', 'w')
+    outFile.write(decodeXML)
+    outFile.close()
+    
+    session = ftplib.FTP('ftp.Smarterasp.net','dineappbu','budineapp!')
+    file12 = open('diningXML.xml','rb')                  # file to send
+    session.storbinary('STOR diningXML.xml', file12)     # send the file
+    file12.close()                                    # close file and FTP
+    session.quit()
+    
+    #print (etree.tostring(mealElement))
 ###RUN THE LINE BELOW TO TEST THE PROGRAM:####
 testItemDictionaryWithPrinting()
 
 # <codecell>
 
-# LIFE IS GOOD!
 

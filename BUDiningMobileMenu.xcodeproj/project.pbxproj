@@ -26,8 +26,6 @@
 		DC1D7138190B773000045E66 /* itemNameCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1D7137190B773000045E66 /* itemNameCellTableViewCell.m */; };
 		DC1D713B190B7B0E00045E66 /* categoryTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1D713A190B7B0E00045E66 /* categoryTitleTableViewCell.m */; };
 		DC1D713E190B88E700045E66 /* NutritionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1D713D190B88E700045E66 /* NutritionViewController.m */; };
-		DC351603190E4139001685BC /* BUDiningParser.ipynb.json in Resources */ = {isa = PBXBuildFile; fileRef = DC351602190E4139001685BC /* BUDiningParser.ipynb.json */; };
-		DC351605190E4140001685BC /* BUDiningParser.py in Resources */ = {isa = PBXBuildFile; fileRef = DC351604190E4140001685BC /* BUDiningParser.py */; };
 		DC4A5CC6190B536B00244845 /* warren.png in Resources */ = {isa = PBXBuildFile; fileRef = DC4A5CC5190B536B00244845 /* warren.png */; };
 		DC4A5CC8190B55CD00244845 /* bayState.png in Resources */ = {isa = PBXBuildFile; fileRef = DC4A5CC7190B55CD00244845 /* bayState.png */; };
 		DC4A5CCC190B5AE800244845 /* west.png in Resources */ = {isa = PBXBuildFile; fileRef = DC4A5CCB190B5AE800244845 /* west.png */; };
@@ -39,6 +37,10 @@
 		DC4A5CD8190B60DC00244845 /* vegitarian.png in Resources */ = {isa = PBXBuildFile; fileRef = DC4A5CD7190B60DC00244845 /* vegitarian.png */; };
 		DC4A5CDB190B647200244845 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4A5CDA190B647200244845 /* MainViewController.m */; };
 		DC4A5CDE190B92D900244845 /* HallImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4A5CDD190B92D900244845 /* HallImageTableViewCell.m */; };
+		DC7007E21918592800C41D02 /* BUDiningParser-west.py in Resources */ = {isa = PBXBuildFile; fileRef = DC7007DE1918592800C41D02 /* BUDiningParser-west.py */; };
+		DC7007E31918592800C41D02 /* autorunUpdate.sh in Resources */ = {isa = PBXBuildFile; fileRef = DC7007DF1918592800C41D02 /* autorunUpdate.sh */; };
+		DC7007E41918592800C41D02 /* BUDiningParser-baystate.py in Resources */ = {isa = PBXBuildFile; fileRef = DC7007E01918592800C41D02 /* BUDiningParser-baystate.py */; };
+		DC7007E51918592800C41D02 /* BUDiningParser-warren.py in Resources */ = {isa = PBXBuildFile; fileRef = DC7007E11918592800C41D02 /* BUDiningParser-warren.py */; };
 		DCACAFF1191595D900DF87E9 /* nutritionBG.png in Resources */ = {isa = PBXBuildFile; fileRef = DCACAFF0191595D900DF87E9 /* nutritionBG.png */; };
 		DCACAFF919159A0900DF87E9 /* splashScreen4.png in Resources */ = {isa = PBXBuildFile; fileRef = DCACAFF819159A0900DF87E9 /* splashScreen4.png */; };
 		DCACAFFB19159A9900DF87E9 /* sp5.png in Resources */ = {isa = PBXBuildFile; fileRef = DCACAFFA19159A9900DF87E9 /* sp5.png */; };
@@ -85,8 +87,6 @@
 		DC1D713A190B7B0E00045E66 /* categoryTitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = categoryTitleTableViewCell.m; sourceTree = "<group>"; };
 		DC1D713C190B88E700045E66 /* NutritionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NutritionViewController.h; sourceTree = "<group>"; };
 		DC1D713D190B88E700045E66 /* NutritionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NutritionViewController.m; sourceTree = "<group>"; };
-		DC351602190E4139001685BC /* BUDiningParser.ipynb.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BUDiningParser.ipynb.json; sourceTree = "<group>"; };
-		DC351604190E4140001685BC /* BUDiningParser.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = BUDiningParser.py; sourceTree = "<group>"; };
 		DC4A5CC5190B536B00244845 /* warren.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warren.png; sourceTree = "<group>"; };
 		DC4A5CC7190B55CD00244845 /* bayState.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bayState.png; sourceTree = "<group>"; };
 		DC4A5CCB190B5AE800244845 /* west.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = west.png; sourceTree = "<group>"; };
@@ -100,6 +100,10 @@
 		DC4A5CDA190B647200244845 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		DC4A5CDC190B92D900244845 /* HallImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HallImageTableViewCell.h; sourceTree = "<group>"; };
 		DC4A5CDD190B92D900244845 /* HallImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HallImageTableViewCell.m; sourceTree = "<group>"; };
+		DC7007DE1918592800C41D02 /* BUDiningParser-west.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = "BUDiningParser-west.py"; sourceTree = "<group>"; };
+		DC7007DF1918592800C41D02 /* autorunUpdate.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = autorunUpdate.sh; sourceTree = "<group>"; };
+		DC7007E01918592800C41D02 /* BUDiningParser-baystate.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = "BUDiningParser-baystate.py"; sourceTree = "<group>"; };
+		DC7007E11918592800C41D02 /* BUDiningParser-warren.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = "BUDiningParser-warren.py"; sourceTree = "<group>"; };
 		DCACAFF0191595D900DF87E9 /* nutritionBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nutritionBG.png; sourceTree = "<group>"; };
 		DCACAFF819159A0900DF87E9 /* splashScreen4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splashScreen4.png; sourceTree = "<group>"; };
 		DCACAFFA19159A9900DF87E9 /* sp5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sp5.png; sourceTree = "<group>"; };
@@ -221,8 +225,10 @@
 		DC351601190E411D001685BC /* parsingEngine */ = {
 			isa = PBXGroup;
 			children = (
-				DC351604190E4140001685BC /* BUDiningParser.py */,
-				DC351602190E4139001685BC /* BUDiningParser.ipynb.json */,
+				DC7007DE1918592800C41D02 /* BUDiningParser-west.py */,
+				DC7007DF1918592800C41D02 /* autorunUpdate.sh */,
+				DC7007E01918592800C41D02 /* BUDiningParser-baystate.py */,
+				DC7007E11918592800C41D02 /* BUDiningParser-warren.py */,
 			);
 			name = parsingEngine;
 			sourceTree = "<group>";
@@ -307,23 +313,25 @@
 				DCDF8C9C1914C60900A48D03 /* BUDiningParser-4.py in Resources */,
 				DC4A5CD6190B606500244845 /* sargent.png in Resources */,
 				DCACAFF1191595D900DF87E9 /* nutritionBG.png in Resources */,
+				DC7007E31918592800C41D02 /* autorunUpdate.sh in Resources */,
 				DC4A5CC6190B536B00244845 /* warren.png in Resources */,
 				DC4A5CD2190B5D0100244845 /* baystate_inAction.jpg in Resources */,
 				DC0FD4841909816400D409CC /* Images.xcassets in Resources */,
 				DCACAFF919159A0900DF87E9 /* splashScreen4.png in Resources */,
 				DC4A5CCC190B5AE800244845 /* west.png in Resources */,
+				DC7007E21918592800C41D02 /* BUDiningParser-west.py in Resources */,
 				DC05AE61190B2D13000F4778 /* westcampus.jpg in Resources */,
 				DC05AE5F190B2D13000F4778 /* z03sz-373x500.jpg in Resources */,
 				DC4A5CC8190B55CD00244845 /* bayState.png in Resources */,
 				DCACAFFB19159A9900DF87E9 /* sp5.png in Resources */,
-				DC351605190E4140001685BC /* BUDiningParser.py in Resources */,
 				DC0FD4761909816400D409CC /* InfoPlist.strings in Resources */,
+				DC7007E51918592800C41D02 /* BUDiningParser-warren.py in Resources */,
+				DC7007E41918592800C41D02 /* BUDiningParser-baystate.py in Resources */,
 				DC05AE60190B2D13000F4778 /* Warren_Towers-598x398.jpg in Resources */,
 				DC4A5CD0190B5C2E00244845 /* warren_inAction.jpg in Resources */,
 				DC0FD47F1909816400D409CC /* Main.storyboard in Resources */,
 				DC4A5CD8190B60DC00244845 /* vegitarian.png in Resources */,
 				DC4A5CD4190B601F00244845 /* vegan.png in Resources */,
-				DC351603190E4139001685BC /* BUDiningParser.ipynb.json in Resources */,
 				DC4A5CCE190B5B8B00244845 /* west_inAction.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
