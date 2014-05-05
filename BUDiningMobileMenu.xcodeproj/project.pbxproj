@@ -22,7 +22,6 @@
 		DC0FD48B1909816400D409CC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0FD48A1909816400D409CC /* XCTest.framework */; };
 		DC0FD48C1909816400D409CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0FD46B1909816400D409CC /* Foundation.framework */; };
 		DC0FD48D1909816400D409CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0FD46F1909816400D409CC /* UIKit.framework */; };
-		DC1D7134190B6E3E00045E66 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1D7131190B6E3E00045E66 /* DetailViewController.m */; };
 		DC1D7138190B773000045E66 /* itemNameCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1D7137190B773000045E66 /* itemNameCellTableViewCell.m */; };
 		DC1D713B190B7B0E00045E66 /* categoryTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1D713A190B7B0E00045E66 /* categoryTitleTableViewCell.m */; };
 		DC1D713E190B88E700045E66 /* NutritionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1D713D190B88E700045E66 /* NutritionViewController.m */; };
@@ -79,8 +78,6 @@
 		DC0FD4831909816400D409CC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DC0FD4891909816400D409CC /* BUDiningMobileMenuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BUDiningMobileMenuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC0FD48A1909816400D409CC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		DC1D7130190B6E3E00045E66 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		DC1D7131190B6E3E00045E66 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		DC1D7136190B773000045E66 /* itemNameCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = itemNameCellTableViewCell.h; sourceTree = "<group>"; };
 		DC1D7137190B773000045E66 /* itemNameCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = itemNameCellTableViewCell.m; sourceTree = "<group>"; };
 		DC1D7139190B7B0E00045E66 /* categoryTitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = categoryTitleTableViewCell.h; sourceTree = "<group>"; };
@@ -185,8 +182,6 @@
 				DC1D7137190B773000045E66 /* itemNameCellTableViewCell.m */,
 				DC4A5CD9190B647200244845 /* MainViewController.h */,
 				DC4A5CDA190B647200244845 /* MainViewController.m */,
-				DC1D7130190B6E3E00045E66 /* DetailViewController.h */,
-				DC1D7131190B6E3E00045E66 /* DetailViewController.m */,
 				DC0FD4831909816400D409CC /* Images.xcassets */,
 				DC0FD4721909816400D409CC /* Supporting Files */,
 				DC351601190E411D001685BC /* parsingEngine */,
@@ -350,7 +345,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC1D7134190B6E3E00045E66 /* DetailViewController.m in Sources */,
 				DC1D713B190B7B0E00045E66 /* categoryTitleTableViewCell.m in Sources */,
 				DC4A5CDE190B92D900244845 /* HallImageTableViewCell.m in Sources */,
 				DC0FD4821909816400D409CC /* ViewController.m in Sources */,
