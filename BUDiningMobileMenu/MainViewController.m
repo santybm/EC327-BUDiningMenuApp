@@ -622,6 +622,7 @@
             break;
     }
     [self.mainTableView reloadData];
+    int topMealselector = self.mealSelector.selectedSegmentIndex;
     
     for(int i=1;i<names.count;i++)
     {
@@ -631,7 +632,7 @@
         NSString *typeOutput = [[NSString alloc]  initWithData:typeAsData encoding: NSASCIIStringEncoding];
         typeOutput = [typeOutput stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         
-        int topMealselector = self.mealSelector.selectedSegmentIndex;
+        
         
         
         if(topMealselector==0 && ![typeOutput isEqualToString:@"Breakfast"])
@@ -650,6 +651,8 @@
             
             
         }
+        
+       
         
         if(topMealselector==1 && ![typeOutput isEqualToString:@"Lunch"])
         {
@@ -687,6 +690,24 @@
         [self.mainTableView reloadData];
         
     }
+    
+    if(topMealselector==0 && names.count<2)
+    {
+        
+        [category insertObject:@"Notice:" atIndex:(1)];
+        [names insertObject:@"No Breakfast Today" atIndex:(1)];
+        [meal insertObject:@"error" atIndex:(1)];
+        [vegetar insertObject:@"error" atIndex:(1)];
+        [vegs insertObject:@"error" atIndex:(1)];
+        [gluten insertObject:@"error" atIndex:(1)];
+        [sar insertObject:@"error" atIndex:(1)];
+        [facts insertObject:@"error" atIndex:(1)];
+        [self.mainTableView reloadData];
+        
+    }
+
+    
+    
     
 }
 

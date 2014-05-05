@@ -61,7 +61,7 @@
 		DC05AE5C190B2D13000F4778 /* z03sz-373x500.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "z03sz-373x500.jpg"; sourceTree = "<group>"; };
 		DC05AE5D190B2D13000F4778 /* Warren_Towers-598x398.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Warren_Towers-598x398.jpg"; sourceTree = "<group>"; };
 		DC05AE5E190B2D13000F4778 /* westcampus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = westcampus.jpg; sourceTree = "<group>"; };
-		DC0FD4681909816400D409CC /* Dining Menu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dining Menu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC0FD4681909816400D409CC /* BU Dining Menu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BU Dining Menu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC0FD46B1909816400D409CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DC0FD46D1909816400D409CC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		DC0FD46F1909816400D409CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -145,7 +145,7 @@
 		DC0FD4691909816400D409CC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DC0FD4681909816400D409CC /* Dining Menu.app */,
+				DC0FD4681909816400D409CC /* BU Dining Menu.app */,
 				DC0FD4891909816400D409CC /* BUDiningMobileMenuTests.xctest */,
 			);
 			name = Products;
@@ -244,7 +244,7 @@
 			);
 			name = "BU Dining Menu";
 			productName = BUDiningMobileMenu;
-			productReference = DC0FD4681909816400D409CC /* Dining Menu.app */;
+			productReference = DC0FD4681909816400D409CC /* BU Dining Menu.app */;
 			productType = "com.apple.product-type.application";
 		};
 		DC0FD4881909816400D409CC /* BUDiningMobileMenuTests */ = {
